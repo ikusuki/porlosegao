@@ -1,0 +1,11 @@
+class CreateCards < ActiveRecord::Migration
+  def change
+    create_table :cards do |t|
+      t.integer :user_id
+      t.integer :picture_id
+      t.string :comment
+
+      t.timestamps
+    end
+  end
+end
