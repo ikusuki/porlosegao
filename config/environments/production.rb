@@ -1,4 +1,8 @@
 Porlosegao::Application.configure do
+
+  config.assets.precompile += %w( toscawookmark.js cards.js cromoengine.js bythesegao.css cards.css easing.js bootstrap.min.js bootstrap.css  )
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

@@ -1,1 +1,10 @@
-index.html.haml
+- content_for :head do
+  = javascript_include_tag "toscawookmark", "cromoengine"
+#cromos
+  - (0..15).each do
+    - @cards.each do |card|
+      .cromo{:style => "height:#{card.height}px"}
+        .inside
+          = image_tag card.picture.url
+          .comment
+            %p= card.comment
