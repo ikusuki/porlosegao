@@ -1,1 +1,14 @@
+- Facebook authentication
+- Twitter authentication
+- Setup S3 o cloudfront
+- Subir pictures
+- A través de una URL
+- Arramplar pictures de alguna web
+
+- Crear cromos
 - Dejar elegir tipo de letra entre tres o cuatro de Google Fonts
+- Votos: me gusta
+
+- Imágenes:
+- Añadir filtros?
+- Añadir tonterías fácil? sombreros, bigotes, bocadillos...
