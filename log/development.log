@@ -401,3 +401,859 @@ Served asset /cards.css - 200 OK (4ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-12 20:53:21 +0900
 Served asset /application.js - 200 OK (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 19:52:51 +0900
+Processing by CardsController#index as HTML
+Filter chain halted as #<Proc:0x007ffdc4977600@/Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 19:52:59 +0900
+Processing by CardsController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Could not find table 'cards'):
+  app/controllers/cards_controller.rb:4:in `index'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.9ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.9ms)
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCards (20121215040916)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "cards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "picture_id" integer, "comment" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121215040916')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePictures (20121215041732)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "source" varchar(255), "url" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121215041732')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20121215041823)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121215041823')
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddHeightToPictures (20121215061143)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121215061143')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddHeightToCards (20121215061337)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "cards" ADD "height" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121215061337')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("cards")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("pictures")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:39 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+Compiled toscawookmark.js  (0ms)  (pid 1827)
+Compiled cromoengine.js  (106ms)  (pid 1827)
+  Rendered cards/index.html.haml within layouts/application (196.8ms)
+Compiled cards.css  (19ms)  (pid 1827)
+Compiled bythesegao.css  (23ms)  (pid 1827)
+Compiled bootstrap.css  (1ms)  (pid 1827)
+Compiled application.css  (49ms)  (pid 1827)
+Compiled bootstrap.min.js  (0ms)  (pid 1827)
+Compiled easing.js  (0ms)  (pid 1827)
+Compiled application.js  (65ms)  (pid 1827)
+Completed 200 OK in 428ms (Views: 426.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:43 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:53 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:56 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:56 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:01:56 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:02 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:21 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:22 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:23 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:23 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:23 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (49.5ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:24 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:24 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:47 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (15.1ms)
+  Rendered layouts/_header.html.haml (3.1ms)
+Completed 200 OK in 67ms (Views: 65.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:02:55 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (1.7ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (Inconsistent indentation: "      \t" was used for indentation, but the rest of the document was indented using 2 spaces.):
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7:       %ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+    11:   
+  app/views/layouts/_header.html.haml:8
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:02 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (5.8ms)
+  Rendered layouts/_header.html.haml (1.7ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (Inconsistent indentation: "      \t" was used for indentation, but the rest of the document was indented using 2 spaces.):
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7:       %ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+    11:   
+  app/views/layouts/_header.html.haml:8
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.9ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:03 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (1.5ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (Inconsistent indentation: "      \t" was used for indentation, but the rest of the document was indented using 2 spaces.):
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7:       %ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+    11:   
+  app/views/layouts/_header.html.haml:8
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:03 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (1.5ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (Inconsistent indentation: "      \t" was used for indentation, but the rest of the document was indented using 2 spaces.):
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7:       %ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+    11:   
+  app/views/layouts/_header.html.haml:8
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.6ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:03 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (2.3ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (Inconsistent indentation: "      \t" was used for indentation, but the rest of the document was indented using 2 spaces.):
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7:       %ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+    11:   
+  app/views/layouts/_header.html.haml:8
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.1ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:12 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (1.5ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (Inconsistent indentation: 3 tabs were used for indentation, but the rest of the document was indented using 2 spaces.):
+    4:       %a.brand
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7: 			%ul.nav
+    8:       	%li.active
+    9:       		%a{:href => "#"} Cromos
+    10: 
+  app/views/layouts/_header.html.haml:7
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:22 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (1.5ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (Inconsistent indentation: 3 tabs were used for indentation, but the rest of the document was indented using 2 spaces.):
+    4:       %a.brand
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7: 			%ul.nav
+    8: 				%li.active
+    9: 					%a{:href => "#"} Cromos
+    10: 
+  app/views/layouts/_header.html.haml:7
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.0ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:50 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (1.5ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (Inconsistent indentation: 3 tabs were used for indentation, but the rest of the document was indented using 2 spaces.):
+    4:       %a.brand
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7: 			%ul.nav
+    8: 			
+    9:   
+  app/views/layouts/_header.html.haml:7
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:50 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (41.5ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (Inconsistent indentation: 3 tabs were used for indentation, but the rest of the document was indented using 2 spaces.):
+    4:       %a.brand
+    5:         By The Segao<br/>
+    6:         %h6{:style=> "color:white"} is the way
+    7: 			%ul.nav
+    8: 			
+    9:   
+  app/views/layouts/_header.html.haml:7
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml___735480868282003724_70227095962140'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.2ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:03:55 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.4ms)
+  Rendered layouts/_header.html.haml (3.3ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:04:31 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.4ms)
+  Rendered layouts/_header.html.haml (4.4ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:05:00 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (5.1ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:05:09 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (5.6ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:05:51 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:06:07 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:06:54 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.3ms)
+  Rendered layouts/_header.html.haml (5.4ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:06:55 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (0.3ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 20:07:00 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.4ms)
+  Rendered layouts/_header.html.haml (5.2ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCards (20121215040916)
+Migrating to CreatePictures (20121215041732)
+Migrating to CreateUsers (20121215041823)
+Migrating to AddHeightToPictures (20121215061143)
+Migrating to AddHeightToCards (20121215061337)
+Migrating to AddDeviseToUsers (20121217134423)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "email" varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "username" varchar(255) NOT NULL
+SQLite3::SQLException: duplicate column name: username: ALTER TABLE "users" ADD "username" varchar(255) NOT NULL
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCards (20121215040916)
+Migrating to CreatePictures (20121215041732)
+Migrating to CreateUsers (20121215041823)
+Migrating to AddHeightToPictures (20121215061143)
+Migrating to AddHeightToCards (20121215061337)
+Migrating to AddDeviseToUsers (20121217134423)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "users" ADD "email" varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "username" varchar(255) NOT NULL
+SQLite3::SQLException: duplicate column name: username: ALTER TABLE "users" ADD "username" varchar(255) NOT NULL
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCards (20121215040916)
+Migrating to CreatePictures (20121215041732)
+Migrating to CreateUsers (20121215041823)
+Migrating to AddHeightToPictures (20121215061143)
+Migrating to AddHeightToCards (20121215061337)
+Migrating to AddDeviseToUsers (20121217134423)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "email" varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar(255) DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_token" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "current_sign_in_ip" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "last_sign_in_ip" varchar(255)[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121217134423')[0m
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("cards")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("pictures")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:53:52 +0900
+Processing by CardsController#index as HTML
+Filter chain halted as #<Proc:0x007fb8fa532ea0@/Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:53:57 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (26.3ms)
+  Rendered layouts/_header.html.haml (7.6ms)
+Completed 200 OK in 103ms (Views: 101.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:54:20 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (7.0ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:54:22 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (3.8ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:54:33 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (7.1ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:56:27 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+  Rendered layouts/_header.html.haml (8.2ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:57:13 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+  Rendered layouts/_header.html.haml (7.9ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:57:14 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:57:56 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (7.6ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:04 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.4ms)
+  Rendered layouts/_header.html.haml (7.8ms)
+Completed 200 OK in 79ms (Views: 77.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:13 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (8.0ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:18 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:38 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (8.8ms)
+  Rendered layouts/_header.html.haml (7.5ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:40 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 22:59:48 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:00:15 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (8.0ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:01:17 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (8.3ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:01:20 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:01:22 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.3ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (0.4ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:01:51 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (8.3ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:12:37 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (2.2ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (Illegal element: classes and ids must have values.):
+    8:         %ul.nav.pull-right
+    9:           %li.divider-vertical
+    10:           %li.dropdown
+    11:             %a.{:href => "#"}
+    12:               Registrander
+    13:               %strong.caret
+    14:             .dropdown-menu{:role => "menu", :style => "padding:15px;  padding-bottom:0px"}
+  app/views/layouts/_header.html.haml:11
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml__1654996825777365791_70216226475880'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.0ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:14:01 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (8.6ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:15:14 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (10.6ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:15:28 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.1ms)
+  Rendered layouts/_header.html.haml (8.7ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:17:14 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (3.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    13:               %strong.caret
+    14:             %ul.dropdown-menu
+    15:               %li
+    16:                   asdfasdf
+    17: 
+    18:         %ul.nav
+    19:           %li.active
+  app/views/layouts/_header.html.haml:16
+  app/views/layouts/application.html.haml:14:in `_app_views_layouts_application_html_haml__1654996825777365791_70216226475880'
+
+
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.6ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/koki142/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:17:19 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (4.0ms)
+  Rendered layouts/_header.html.haml (8.1ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:17:48 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+Compiled bootstrap.min.css  (47ms)  (pid 1065)
+Compiled application.css  (58ms)  (pid 1065)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 108ms (Views: 106.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2012-12-17 23:17:48 +0900
+Served asset /bootstrap.min.css - 200 OK (7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:17:52 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.2ms)
+Compiled application.css  (4ms)  (pid 1065)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Processing by CardsController#index as HTML
+  [1m[35mCard Load (0.2ms)[0m  SELECT "cards".* FROM "cards" 
+  Rendered cards/index.html.haml within layouts/application (2.0ms)
+  Rendered layouts/_header.html.haml (0.5ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bythesegao.css?body=1" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Served asset /bythesegao.css - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Served asset /application.css - 200 OK (40ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Served asset /bootstrap.min.js - 200 OK (3ms)
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Served asset /easing.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-17 23:18:41 +0900
+Served asset /bootstrap.css - 200 OK (60ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-17 23:18:42 +0900
+Served asset /application.js - 200 OK (7ms)
+
+
+Started GET "/assets/cromoengine.js?body=1" for 127.0.0.1 at 2012-12-17 23:18:42 +0900
+Served asset /cromoengine.js - 200 OK (2ms)
+
+
+Started GET "/assets/toscawookmark.js?body=1" for 127.0.0.1 at 2012-12-17 23:18:42 +0900
+Served asset /toscawookmark.js - 200 OK (9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Processing by CardsController#index as HTML
+  [1m[36mCard Load (0.2ms)[0m  [1mSELECT "cards".* FROM "cards" [0m
+  Rendered cards/index.html.haml within layouts/application (2.3ms)
+  Rendered layouts/_header.html.haml (8.2ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bythesegao.css?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /bythesegao.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /easing.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/toscawookmark.js?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /toscawookmark.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cromoengine.js?body=1" for 127.0.0.1 at 2012-12-17 23:21:37 +0900
+Served asset /cromoengine.js - 304 Not Modified (0ms)

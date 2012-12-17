@@ -4,11 +4,22 @@
       %a.brand
         By The Segao<br/>
         %h6{:style=> "color:white"} is the way
-      %ul.nav
-        %li.active
-          %a{:href => "#"} Cromos
-        %li
-          %a{:href => "#"} Imágenes
+      .nav-collapse
+        %ul.nav.pull-right
+          %li.divider-vertical
+          %li.dropdown
+            %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+              Registrander
+              %strong.caret
+            %ul.dropdown-menu
+              %li
+                asdfasdf
+
+        %ul.nav
+          %li.active
+            %a{:href => "#"} Cromos
+          %li
+            %a{:href => "#"} Imágenes
 
 
 			

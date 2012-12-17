@@ -1,1 +1,0 @@
-(function(){$(function(){var e,t,n;return e=$("#cromos"),t={offset:50,itemWidth:500,containerWidth:$("#cromos").width(),container:e},n=$("div.cromo",e),n.toscamark(t)})}).call(this);
