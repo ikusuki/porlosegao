@@ -1,5 +1,8 @@
+- User/password -> devise
 - Facebook authentication
 - Twitter authentication
+- User menu
+  http://tympanus.net/codrops/2012/11/29/simple-effects-for-drop-down-lists/
 - Setup S3 o cloudfront
 - Subir pictures
 - A través de una URL
