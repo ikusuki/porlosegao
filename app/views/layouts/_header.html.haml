@@ -1,7 +1,7 @@
 #header.navbar.navbar-fixed-top
   .navbar-inner
     .container.extended
-      %a.brand
+      %a.brand{:href => "/"}
         By The Segao<br/>
         %h6{:style=> "color:white"} is the way
       .nav-collapse
@@ -13,13 +13,13 @@
               %strong.caret
             .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
               %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
-              %form#signin_form
-                %input{:type => "text", :placeholder => "Usernamer"}
-                %input{:type => "text", :placeholder => "Email"}
-                %input{:type => "password", :placeholder => "Contraseñer"}
-                %input{:type => "password", :placeholder => "Contraseñer otra vez"}
-                %button#signin.btn.btn-inverse{:href => "#"}
-                  Apúntame a esto
+              = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f| 
+                = f.text_field :username, :placeholder => "Usernamer"
+                = f.email_field :email, :placeholder => "Email"
+                = f.password_field :password, :placeholder => "Contraseñer"
+                = f.password_field :password_confirmation, :placeholder => "Contraseñer otra vez"
+                %button#signin.btn.btn-inverse{:type => "submit"}
+                  Apúntame a esta gaita
                 #daleaqui
                   = image_tag "declare.gif"
           %li.dropdown
@@ -32,9 +32,9 @@
                 %input{:type => "text", :placeholder => "Usernamer"}
                 %input{:type => "password", :placeholder => "Contraseñer"}
                 #daleaqui
-                  = image_tag "declare.gif"
+                  = image_tag "vainas.gif"
                 %button#signin.btn.btn-success{:href => "#"}
-                  Let me in
+                  Padentrer
         %ul.nav
           %li.active
             %a{:href => "#"} Cromos
