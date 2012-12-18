@@ -12,8 +12,16 @@
               Registrander
               %strong.caret
             .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
-              %form
-                %input{:type => "text", :placeholder => "Username", :style=>"margin-bottom:15px"}
+              %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
+              %form#signin_form
+                %input{:type => "text", :placeholder => "Usernamer"}
+                %input{:type => "text", :placeholder => "Email"}
+                %input{:type => "password", :placeholder => "Contraseñer"}
+                %input{:type => "password", :placeholder => "Contraseñer otra vez"}
+                %button#signin.btn.btn-inverse{:href => "#"}
+                  Let me in
+                #daleaqui
+                  = image_tag "declare.gif"
 
         %ul.nav
           %li.active
