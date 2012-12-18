@@ -19,10 +19,22 @@
                 %input{:type => "password", :placeholder => "Contraseñer"}
                 %input{:type => "password", :placeholder => "Contraseñer otra vez"}
                 %button#signin.btn.btn-inverse{:href => "#"}
-                  Let me in
+                  Apúntame a esto
                 #daleaqui
                   = image_tag "declare.gif"
-
+          %li.dropdown
+            %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+              Login
+              %strong.caret
+            .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
+              %h4 Vamos pa dentro!
+              %form#signin_form
+                %input{:type => "text", :placeholder => "Usernamer"}
+                %input{:type => "password", :placeholder => "Contraseñer"}
+                #daleaqui
+                  = image_tag "declare.gif"
+                %button#signin.btn.btn-success{:href => "#"}
+                  Let me in
         %ul.nav
           %li.active
             %a{:href => "#"} Cromos
