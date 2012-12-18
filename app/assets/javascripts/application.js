@@ -12,3 +12,6 @@
 //
 //= require bootstrap.min
 //= require easing
+//= require jquery.validationEngine-es
+//= require jquery.validationEngine
+//= require bythesegao
