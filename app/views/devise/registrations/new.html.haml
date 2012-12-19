@@ -1,0 +1,13 @@
+.container{:style => "width: 220px; margin-top:100px;"}
+  %h2 Registreitor 
+  = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_big_form"}) do |f| 
+    = f.text_field :username, :placeholder => "Usernamer", :class=>"validate[required]"
+    = f.email_field :email, :placeholder => "Email", :class=>"validate[required,custom[email]]"
+    = f.password_field :password , :placeholder => "Contraseñer", :class => "validate[required,minSize[6]]"
+    = f.password_field :password_confirmation, :placeholder => "Contraseñer otra vez", :class => "validate[required,equals[user_password]"  
+    %button#signin.btn.btn-inverse{:type => "submit"}
+      Intentar otra vez
+
+    = devise_error_messages!
+
+  = render "devise/shared/links" 

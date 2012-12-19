@@ -1,12 +1,11 @@
 $ ->
-  $('#signin_form, #login_form').validationEngine();
+  $('#signin_form, #login_form, #signin_big_form').validationEngine();
   window.myMessages = ['info','warning','error','success']
   # Initially, hide them all
   hideAllMessages()
 
-
   showMessage 'info'
-
+  showMessage 'error'
 
   # When message is clicked, hide it
   $(".message").click ->
@@ -27,3 +26,6 @@ showMessage = (type) ->
   $("." + type).animate
     top: "0"
   , 500
+  $('.info').delay(5000).animate
+    top: -$(this).outerHeight()
+    , 500

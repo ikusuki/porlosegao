@@ -12,8 +12,13 @@
     = yield :head
   %body
     = render 'layouts/header'
-    .info.message
-      %h3 Pataliebreeeee
-      %p esto furrula!!
+    - if session[:just_login]
+      - session[:just_login] = nil
+      = render 'layouts/info_panel', :title => get_saludo(current_user.username), :content => get_frase_chorra
+    - if session[:just_register]
+      - session[:just_register] = nil
+      = render 'layouts/info_panel', :title => "Hombre, #{current_user.username}, pues bienvenido ", :content => "Crea algunos cromos ahí según llegas!"
+    - if @errors
+      = render 'layouts/error_panel', :title => @errors[:title], :content => @errors[:message]
     = yield
 
