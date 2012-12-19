@@ -84,6 +84,7 @@ $.fn.toscamark = function(options) {
   
   // Display items (if hidden).
   var i=0;
+  $(this).show();
   for(i=0; i<this.length; i++ ) {
     var item = $('img', $(this[i]));
     var comment = $('.comment p', $(this[i]));
