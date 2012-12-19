@@ -7,34 +7,38 @@
       .nav-collapse
         %ul.nav.pull-right
           %li.divider-vertical
-          %li.dropdown
-            %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
-              Registrander
-              %strong.caret
-            .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
-              %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
-              = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f| 
-                = f.text_field :username, :placeholder => "Usernamer", :class=>"validate[required]"
-                = f.email_field :email, :placeholder => "Email"
-                = f.password_field :password, :placeholder => "Contraseñer"
-                = f.password_field :password_confirmation, :placeholder => "Contraseñer otra vez"
-                %button#signin.btn.btn-inverse{:type => "submit"}
-                  Apúntame a esta gaita
-                #daleaqui
-                  = image_tag "declare.gif"
-          %li.dropdown
-            %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
-              Login
-              %strong.caret
-            .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
-              %h4 Vamos pa dentro!
-              %form#signin_form
-                %input{:type => "text", :placeholder => "Usernamer"}
-                %input{:type => "password", :placeholder => "Contraseñer"}
-                #daleaqui
-                  = image_tag "vainas.gif"
-                %button#signin.btn.btn-success{:href => "#"}
-                  Padentrer
+          - if current_user
+            %li 
+              = link_to "Logout #{current_user.username}", destroy_user_session_path
+          - unless current_user
+            %li.dropdown
+              %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+                Registrander
+                %strong.caret
+              .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
+                %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
+                = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f| 
+                  = f.text_field :username, :placeholder => "Usernamer", :class=>"validate[required]", "data-prompt-position" => "topRight:-50,0"
+                  = f.email_field :email, :placeholder => "Email", :class=>"validate[required,custom[email]]", "data-prompt-position" => "topLeft"
+                  = f.password_field :password, :placeholder => "Contraseñer", :class => "validate[required,minSize[6]]", "data-prompt-position" => "topRight:-50,0"
+                  = f.password_field :password_confirmation, :placeholder => "Contraseñer otra vez", :class => "validate[required,equals[user_password]", "data-prompt-position" => "topLeft"
+                  %button#signin.btn.btn-inverse{:type => "submit"}
+                    Apúntame a esta gaita
+                  .daleaqui
+                    = image_tag "declare.gif"
+            %li.dropdown
+              %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+                Login
+                %strong.caret
+              .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
+                %h4 Vamos pa dentro!
+                = form_for(:user, :url => session_path(:user), :html => {:id => "login_form"}) do |f|
+                  = f.email_field :email, :placeholder => "Emailer", :class => "validate[required,custom[email]]", "data-prompt-position" => "topRight:-100,0"
+                  = f.password_field :password, :placeholder => "Contraseñser", :class => "validate[required]", "data-prompt-position" => "bottomRight:-100,0"
+                  .daleaqui
+                    = image_tag "vainas.gif"
+                  %button#login.btn.btn-success{:href => "#"}
+                    Padentrer
         %ul.nav
           %li.active
             %a{:href => "#"} Cromos
