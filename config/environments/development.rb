@@ -34,4 +34,10 @@ Porlosegao::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  unless Rails.env.production?
+    ENV['AWS_SECRET_KEY_ID']= 'AKIAIEEOYYBM3CORD5BQ'
+    ENV['AWS_SECRET_ACCESS_KEY']= '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'
+    ENV['S3_BUCKET']= 'bythesegao'
+  end
 end
