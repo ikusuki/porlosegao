@@ -23,6 +23,7 @@ end
 gem 'haml'
 gem 'devise'
 gem 'compass-rails'
+
 group :production do
   gem 'pg'
 end
