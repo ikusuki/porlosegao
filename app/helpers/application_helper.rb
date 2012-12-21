@@ -7,7 +7,7 @@ module ApplicationHelper
                       "Pasa y cierra ya, que se escapa el gatete!!",
                       "Por casualidad... ¿no tendreis séis dedos en vuestra mano derecha?",
                       "¿No serás franchute, tu? ¿no? quesquesé quesquesé",
-                      "Bueno, te dejo que tengo las lentejas en el fuego!"
+                      "Bueno, te dejo que tengo las lentejas en el fuego!",
                       "Yo hoy ando comsí comsá, regulerer flavour day..."]
 
     frases_chorras[rand(frases_chorras.length)]

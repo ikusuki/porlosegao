@@ -3,6 +3,11 @@ Porlosegao::Application.routes.draw do
 
   resources :signed_urls, only: :index
 
+  match 'pages/:id',
+    :controller => 'pages',
+    :action => 'show',
+    :requirements => {:id => /[a-z]+/ }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
