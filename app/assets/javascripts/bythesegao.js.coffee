@@ -1,11 +1,16 @@
 $ ->
   $('#signin_form, #login_form, #signin_big_form').validationEngine();
+
+  $('#upload').click ->
+    $('#picture_upload').click()
+    true
+
   window.myMessages = ['info','warning','error','success']
   # Initially, hide them all
   hideAllMessages()
 
-  showMessage 'info'
-  showMessage 'error'
+  window.showMessage 'info'
+  window.showMessage 'error'
 
   # When message is clicked, hide it
   $(".message").click ->
@@ -22,7 +27,7 @@ hideAllMessages = () ->
     i++
   true
 
-showMessage = (type) ->
+window.showMessage = (type) ->
   $("." + type).animate
     top: "0"
   , 500

@@ -24,6 +24,7 @@ $(function() {
       ],
       dataType: 'xml', // This is really important as s3 gives us back the url of the file in a XML document
       add: function (event, data) {
+        window.showMessage('warning');
         $(this).fileupload('process', data).done(function () {
         $.ajax({
           url: "/signed_urls",
@@ -42,6 +43,7 @@ $(function() {
         data.submit();
       })},
       send: function(e, data) {
+        $('#upload_message').html('Subiendo... parriba... parriba...');
         $('.progress').fadeIn();
       },
       progress: function(e, data){
@@ -51,16 +53,34 @@ $(function() {
         $('.bar').css('width', percent + '%')
       },
       fail: function(e, data) {
+        $('#upload_message').html('Ná, no ha podido ser!! error raruno!!')
         console.log('fail')
       },
       success: function(data) {
+        $('#upload_message').html('Hecho!')
+        $('.warning').delay(3000).animate({
+          top: -200,
+        }, 500)
+
         // Here we get the file url on s3 in an xml doc
         var url = $(data).find('Location').text()
 
         $('#real_file_url').val(url) // Update the real input in the other form
       },
       done: function (event, data) {
-        $('.progress').fadeOut(300, function() {
+        $.ajax({
+          type: 'POST',
+          url: "/pictures",
+          beforeSend: function(jqXHR, settings) {
+            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+          },
+          data: { url: $('#uploaded_file_path').val()},
+          success: function(data) { 
+            // window.location = "/cromosImagen/" + data.id;
+            window.location = "/pictures";
+          }})
+        
+        $('.progress').fadeOut(3000, function() {
           $('.bar').css('width', 0)
         })
       },
