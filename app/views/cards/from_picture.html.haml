@@ -1,0 +1,17 @@
+- content_for :head do
+  = javascript_include_tag "toscawookmark", "cromoengine"
+  %link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise")
+
+#titulo.container
+  %h3=@picture.description
+  #stats
+    =@cards.size 
+    =@cards.size>1?"cromos":"cromo"
+#cromos
+  - (0..15).each do
+    - @cards.each do |card|
+      .cromo{:style => "height:#{card.height}px; display:none"}
+        .inside
+          = image_tag card.picture.url
+          .comment
+            %p= card.comment

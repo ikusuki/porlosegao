@@ -1,0 +1,8 @@
+- content_for :head do
+  = javascript_include_tag "jquery.masonry", "picturengine"
+#pictures
+  - (0..15).each do
+    - @pictures.each do |picture|
+      .picture
+        %a{:href => "/cromosImagen/#{picture.id}"} 
+          = image_tag picture.url

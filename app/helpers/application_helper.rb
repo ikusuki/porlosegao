@@ -24,8 +24,5 @@ module ApplicationHelper
               "Por fin aparece #{username}, quita el cartel de 'Se Busca' ya",
               "¿#{username} ande te habías metío, chiquillo?"]
     saludos[rand(saludos.length)]
-
   end
-
-
 end

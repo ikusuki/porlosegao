@@ -64,8 +64,8 @@
   width:95%;
   opacity:1;
 }
+.navbar {    border-bottom:10px solid white !important;}
 #header {
-  .navbar {    border-bottom:5px solid white !important;}
   #signin_form, #login_form {
     margin-top:20px;
     #signin { text-align:center;}
@@ -77,11 +77,9 @@
       position:relative;
     }
   }
-
 }
 #cromos {
   width:100%;
-  margin-top:-50px;
   position:relative;
   clear:both;
 }
@@ -123,6 +121,26 @@
     }
   }
 }
+#pictures {
+ clear:both;
+ margin:0 auto;
+ width:85%;
+ position:relative;
+}
+.picture {
+  float: left;
+  img {
+    margin-top:10px;
+    padding: 5px;
+    background: white;
+    font-size: 11px;
+    line-height: 1.4em;
+    display:block;
+    width:100%;
+    max-width:500px;
+  }
+}
+
 
 #signin_big_form {
   margin-top:20px;
@@ -133,6 +151,21 @@
     clear:both;
     display:block;
     border-radius:5px;
+  }
+}
+
+.container#titulo {
+  margin:auto;
+  margin-bottom:none;
+  text-align:center;
+  width:400px;
+  h3 {
+    font-size:48px;
+    font-family: 'Waiting for the Sunrise', cursive;
+
+  }
+  #stats {
+    text-align:right;
   }
 }
 

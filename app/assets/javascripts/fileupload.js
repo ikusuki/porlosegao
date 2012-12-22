@@ -1,15 +1,30 @@
 $(function() {
 
-  $('.direct-upload').each(function() {
-
+    $('.direct-upload').each(function() {
     var form = $(this)
 
     $(this).fileupload({
       url: form.attr('action'),
       type: 'POST',
       autoUpload: true,
+      process:[
+      {
+        action: 'load',
+        fileTypes: /^image\/(gif|jpeg|png)$/,
+        maxFileSize: 5000000
+      },
+      {
+        action: 'resize',
+        maxWidth: 500,
+        maxHeight: 3000
+      },
+      {
+        action: 'save'
+      }
+      ],
       dataType: 'xml', // This is really important as s3 gives us back the url of the file in a XML document
       add: function (event, data) {
+        $(this).fileupload('process', data).done(function () {
         $.ajax({
           url: "/signed_urls",
           type: 'GET',
@@ -25,7 +40,7 @@ $(function() {
           }
         })
         data.submit();
-      },
+      })},
       send: function(e, data) {
         $('.progress').fadeIn();
       },

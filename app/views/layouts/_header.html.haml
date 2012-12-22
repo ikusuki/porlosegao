@@ -40,10 +40,10 @@
                   %button#login.btn.btn-primary{:href => "#"}
                     Padentrer
         %ul.nav
-          %li.active
-            %a{:href => "#"} Cromos
-          %li
-            %a{:href => "#"} Imágenes
+          %li{:class => ("active" if params[:controller]=="cards")}
+            = link_to "Cromos", cards_path
+          %li{:class => ("active" if params[:controller]=="pictures")}
+            = link_to "Imágenes", pictures_path
 
 
 			

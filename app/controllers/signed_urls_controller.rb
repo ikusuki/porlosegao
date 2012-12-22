@@ -4,7 +4,7 @@ class SignedUrlsController < ApplicationController
     render json: {
           policy: s3_upload_policy_document,
           signature: s3_upload_signature,
-          key: "uploads/#{SecureRandom.uuid}/#{params[:doc][:title]}",
+          key: "foticas/#{SecureRandom.uuid}/#{params[:doc][:title]}",
           success_action_redirect: "/"
         }
   end
@@ -17,7 +17,7 @@ class SignedUrlsController < ApplicationController
         conditions: [
           { bucket: ENV['S3_BUCKET'] },
           { acl: 'public-read' },
-          ["starts-with", "$key", "uploads/"],
+          ["starts-with", "$key", "foticas/"],
           { success_action_status: '201' }
         ]
     }.to_json

@@ -8,6 +8,10 @@ Porlosegao::Application.routes.draw do
     :action => 'show',
     :requirements => {:id => /[a-z]+/ }
 
+  resources :cards
+  match "cromosImagen/:id" => 'cards#from_picture'
+  resources :pictures
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
