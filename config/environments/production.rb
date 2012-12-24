@@ -1,5 +1,10 @@
 Porlosegao::Application.configure do
 
+  ENV['AWS_ACCESS_KEY_ID']= 'AKIAIEEOYYBM3CORD5BQ'
+  ENV['AWS_SECRET_ACCESS_KEY']= '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'
+  ENV['S3_BUCKET']= 'bythesegao'
+
+
   config.assets.precompile += %w( toscawookmark.js cards.js cromoengine.js bythesegao.css cards.css easing.js bootstrap.min.js bootstrap.css  )
 
 
