@@ -1,4 +1,8 @@
 $ ->
+  $('#pictures .picture img, #cromos .inside img').imgr
+    size: "1px"
+    color: "white"
+    radius: "20px 20px 0px 0px"
   $('#signin_form, #login_form, #signin_big_form').validationEngine();
 
   $('#upload').click ->
@@ -28,7 +32,7 @@ $ ->
       data: 
         "titulo" : $('#pictureTitle').val()
       success: (data) ->
-        $('#titulerForm').fadeOut("fast")
+        $('#user-form').fadeOut("fast")
         $('#pictureTitulaco').hide().html(data['titulo']).fadeIn("fast")
         true
     true

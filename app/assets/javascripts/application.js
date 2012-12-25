@@ -14,4 +14,5 @@
 //= require easing
 //= require jquery.validationEngine-es
 //= require jquery.validationEngine
+//= require jquery.imgr.min
 //= require bythesegao
