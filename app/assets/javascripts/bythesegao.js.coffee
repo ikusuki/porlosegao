@@ -57,7 +57,7 @@ $ ->
     commentSpace = 60
     commentSpace +=  (lineas * 55) if lines>1
 
-    $('#cardHeight').val($('#picture_img').width() + commentSpace)
+    $('#cardHeight').val($('#picture_img').height() + commentSpace)
     $('#cromoForm form').submit()
     true
 
