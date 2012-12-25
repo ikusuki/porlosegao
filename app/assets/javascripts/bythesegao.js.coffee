@@ -41,7 +41,7 @@ $ ->
     false
   $('#crearCromo').click ->
     $(this).hide()
-    $('#cromoText').width($('#picture_img').width()-10)
+    $('#cromoText').width($('#picture_img').width()+40)
     $('#stats, #pictureTitulaco').slideUp 'fast', ->
       $('#cromoForm').slideDown 'fast', ->
         $('#cromoText').focus()
@@ -54,7 +54,7 @@ $ ->
   false
   $('#daleCera').click ->
     lines = lineBreaksCount($('#cromoText').val())
-    commentSpace = 60
+    commentSpace = 140
     commentSpace +=  (lineas * 55) if lines>1
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
