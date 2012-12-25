@@ -54,7 +54,7 @@ $ ->
   false
 
   $('#daleCera').click ->
-    commentSpace = 55
+    commentSpace = 80
     commentSpace += lineBreaksCount($('#cromoText').val()) * 55    
     $('#cardHeight').val($('#picture_img').width() + commentSpace)
     $('#cromoForm form').submit()
