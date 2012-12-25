@@ -52,10 +52,11 @@ $ ->
       $('#stats, #pictureTitulaco').slideDown "fast"
       $('#crearCromo').show()
   false
-
   $('#daleCera').click ->
-    commentSpace = 80
-    commentSpace += lineBreaksCount($('#cromoText').val()) * 55    
+    lines = lineBreaksCount($('#cromoText').val())
+    commentSpace = 60
+    commentSpace +=  (lineas * 55) if lines>1
+
     $('#cardHeight').val($('#picture_img').width() + commentSpace)
     $('#cromoForm form').submit()
     true
