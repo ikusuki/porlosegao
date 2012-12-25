@@ -12,7 +12,7 @@
       = javascript_include_tag "jquery.ui.widget", "jquery.fileupload", "load-image.min.js", "canvas-to-blob.min.js", "jquery.fileupload-fp.js", "fileupload"
     = javascript_include_tag 'application'
     = yield :head
-  %body
+  %body{:id => "#{params[:controller]}_#{params[:action]}"}
     = render 'layouts/header'
     - if current_user
       .warning.message

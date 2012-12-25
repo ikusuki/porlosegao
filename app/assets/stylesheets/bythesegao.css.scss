@@ -242,22 +242,40 @@
     border-radius:5px;
   }
 }
-
-.container#titulo {
-  margin:auto;
-  margin-bottom:none;
-  text-align:center;
-  width:400px;
-  h3 {
-    font-size:48px;
-    font-family: 'Waiting for the Sunrise', cursive;
-
+#cards_from_picture {
+  .btn:hover {
+    text-decoration:none;
   }
-  #stats {
-    text-align:right;
+  #user-form {
+    text-align:left;
+  }
+  .container#titulo {
+    img {
+      margin-top:15px;
+    }
+    input {
+      margin-top:10px;
+    }
+    margin:auto;
+    margin-bottom:none;
+    text-align:center;
+    width:400px;
+    h3 {
+      font-size:48px;
+      font-family: 'Waiting for the Sunrise', cursive;
+
+    }
+    #stats {
+      text-align:right;
+    }
+  }
+  .message.no-hide {
+    p {    line-height:26px;  }
+    input {
+      margin-top:10px;
+    }
   }
 }
-
 .message{
      -webkit-background-size: 40px 40px;
      -moz-background-size: 40px 40px;

@@ -14,9 +14,24 @@ $ ->
 
   # When message is clicked, hide it
   $(".message").click ->
-    $(this).animate
-      top: -$(this).outerHeight()
-    , 500
+    unless $(this).hasClass('no-hide')
+      $(this).animate
+        top: -$(this).outerHeight()
+      , 500
+
+  $('#bautizer').click ->
+    $.ajax
+      url: "/pictures/" + $(this).data('id') + "/bautizer"
+      type: "POST"
+      data: 
+        "titulo" : $('#pictureTitle').val()
+      success: (html) ->
+        $('#titulerForm').fadeOut("fast")
+        $('#pictureTitulaco').hide().html(data['titulo']).fadeIn("fast")
+        true
+    true
+
+
 
 hideAllMessages = () ->
   messagesHeights = new Array() # this array will store height for each
@@ -31,6 +46,6 @@ window.showMessage = (type) ->
   $("." + type).animate
     top: "0"
   , 500
-  $('.info').delay(5000).animate
+  $('.info:not(.no-hide)').delay(5000).animate
     top: -$(this).outerHeight()
     , 500

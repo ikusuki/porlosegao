@@ -10,7 +10,11 @@ Porlosegao::Application.routes.draw do
 
   resources :cards
   match "cromosImagen/:id" => 'cards#from_picture'
-  resources :pictures
+  resources :pictures do
+    member do
+      post :bautizer
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

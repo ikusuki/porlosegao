@@ -25,4 +25,5 @@ module ApplicationHelper
               "¿#{username} ande te habías metío, chiquillo?"]
     saludos[rand(saludos.length)]
   end
+
 end
