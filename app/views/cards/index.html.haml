@@ -7,4 +7,5 @@
         .inside
           = image_tag card.picture.url
           .comment
-            %p= card.comment
+            =simple_format(card.comment)
+

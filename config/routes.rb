@@ -8,7 +8,11 @@ Porlosegao::Application.routes.draw do
     :action => 'show',
     :requirements => {:id => /[a-z]+/ }
 
-  resources :cards
+  resources :cards do
+    collection do
+      post :create_cromo
+    end
+  end
   match "cromosImagen/:id" => 'cards#from_picture'
   resources :pictures do
     member do

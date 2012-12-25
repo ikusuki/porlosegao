@@ -1,8 +1,8 @@
 $ ->
-  $('#pictures .picture img, #cromos .inside img').imgr
-    size: "1px"
-    color: "white"
-    radius: "20px 20px 0px 0px"
+  # $('#pictures .picture img, #cromos .inside img').imgr
+  #   size: "1px"
+  #   color: "white"
+  #   radius: "20px 20px 0px 0px"
   $('#signin_form, #login_form, #signin_big_form').validationEngine();
 
   $('#upload').click ->
@@ -36,7 +36,35 @@ $ ->
         $('#pictureTitulaco').hide().html(data['titulo']).fadeIn("fast")
         true
     true
+  $('#logueate').click ->
+    $('#login').click()
+    false
+  $('#crearCromo').click ->
+    $(this).hide()
+    $('#cromoText').width($('#picture_img').width()-10)
+    $('#stats, #pictureTitulaco').slideUp 'fast', ->
+      $('#cromoForm').slideDown 'fast', ->
+        $('#cromoText').focus()
+    false
 
+  $('#cancel').click ->
+    $('#cromoForm').slideUp "fast", ->
+      $('#stats, #pictureTitulaco').slideDown "fast"
+      $('#crearCromo').show()
+  false
+
+  $('#daleCera').click ->
+    commentSpace = 55
+    commentSpace += lineBreaksCount($('#cromoText').val()) * 55    
+    $('#cardHeight').val($('#picture_img').width() + commentSpace)
+    $('#cromoForm form').submit()
+    true
+
+lineBreaksCount = (str) ->
+  try
+    return (str.match(/[^\n]*\n[^\n]*/g).length)
+  catch e
+    return 0
 
 hideAllMessages = () ->
   messagesHeights = new Array() # this array will store height for each

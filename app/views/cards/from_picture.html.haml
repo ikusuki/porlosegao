@@ -3,8 +3,8 @@
   %link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise")
 
 #titulo.container
-  = image_tag @picture.url
-  - if @picture.user_id == current_user.id && @picture.description.blank?
+  = image_tag @picture.url, :id => "picture_img"
+  - if current_user && @picture.user_id == current_user.id && @picture.description.blank?
     #user-form
       #titulerForm
         Si le pones un título, me das la vida!
@@ -13,13 +13,28 @@
           Bautizar
   %h3#pictureTitulaco= @picture.description
   #stats
-    - if @picture.user_id == current_user.id
+    - if current_user && @picture.user_id == current_user.id
       %p Esta imagen la has subido tu, que lo sé yo
     - if @cards.size ==0
       %p No hay cromos todavía...
     - else
       =@cards.size 
       =@cards.size!=1?"cromos":"cromo"
+  - if current_user
+    %a#crearCromo.btn.btn-primary.btn-large{:href => "#"}
+      Crear un cromo
+  - else
+    %a#logueate.btn.btn-primary{:href => "#"}
+      Hazte un login para crear cromos
+  #cromoForm
+    = form_tag(create_cromo_cards_path, :method => "POST") do
+      %input{:type =>"hidden", :name => :picture_id, :value => @picture.id}
+      %input#cardHeight{:type =>"hidden", :name => :card_height}
+      %textarea#cromoText{:name => "cromoText"}
+      %a#daleCera.btn.btn-info{:href => "#"}
+        Dale cera
+      %a#cancel.btn.btn-danger{:href => "#"}
+        Déjalo pa luego
 
 
 #cromos
@@ -29,4 +44,4 @@
         .inside
           = image_tag card.picture.url
           .comment
-            %p= card.comment
+            =simple_format(card.comment)

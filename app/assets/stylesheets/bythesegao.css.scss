@@ -275,6 +275,27 @@
       }
     }
   }
+  #crearCromo, #logueate {
+    position:relative;
+    top:20px;
+  }
+  #cromoForm {
+    display:none;
+    textarea {
+      display:block;
+      font-size:38px;
+      line-height:38px;
+      font-family:'Mouse Memoirs', Arial, serif; 
+      font-weight: 400; 
+      resize:none;
+      height:150px;
+      margin-bottom:50px;
+    }
+    .btn {
+      margin:20px;
+    }
+
+  }
   .message.no-hide {
     p {    line-height:26px;  }
     input {

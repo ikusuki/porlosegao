@@ -14,7 +14,6 @@ class PicturesController < ApplicationController
 
   def bautizer
     id = params['id']
-    debugger
     @picture = Picture.find(id)
     if current_user.id != @picture.user_id
       render :json => {:error => "Chacho, que esta imagen no es tuya"}, :success => false and return
