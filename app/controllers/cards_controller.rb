@@ -6,7 +6,7 @@ class CardsController < ApplicationController
 
   def from_picture
     @picture = Picture.find(params[:id])
-    @cards = Card.where(:picture_id => params[:id])
+    @cards = Card.order("id desc").where(:picture_id => params[:id])
   end
   
   def create_cromo
