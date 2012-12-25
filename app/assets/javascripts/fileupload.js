@@ -76,8 +76,7 @@ $(function() {
           },
           data: { url: $('#uploaded_file_path').val()},
           success: function(data) { 
-            // window.location = "/cromosImagen/" + data.id;
-            window.location = "/pictures";
+            window.location = "/cromosImagen/" + data.id;
           }})
         
         $('.progress').fadeOut(3000, function() {

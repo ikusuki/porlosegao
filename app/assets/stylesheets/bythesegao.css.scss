@@ -243,6 +243,7 @@
   }
 }
 #cards_from_picture {
+  #user-form { padding:20px; }
   .btn:hover {
     text-decoration:none;
   }
@@ -263,10 +264,15 @@
     h3 {
       font-size:48px;
       font-family: 'Waiting for the Sunrise', cursive;
+      margin-top:10px;
 
     }
     #stats {
       text-align:right;
+      margin-top:15px;
+      p {
+        line-height:8px;
+      }
     }
   }
   .message.no-hide {

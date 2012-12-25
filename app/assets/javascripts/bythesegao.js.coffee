@@ -23,14 +23,15 @@ $ ->
     $.ajax
       url: "/pictures/" + $(this).data('id') + "/bautizer"
       type: "POST"
+      beforeSend: (jqXHR, settings) ->
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
       data: 
         "titulo" : $('#pictureTitle').val()
-      success: (html) ->
+      success: (data) ->
         $('#titulerForm').fadeOut("fast")
         $('#pictureTitulaco').hide().html(data['titulo']).fadeIn("fast")
         true
     true
-
 
 
 hideAllMessages = () ->

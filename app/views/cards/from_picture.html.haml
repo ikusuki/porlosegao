@@ -4,20 +4,19 @@
 
 #titulo.container
   = image_tag @picture.url
-  %h3=@picture.description
-  #user-form
-    - if @picture.user_id == current_user.id
-      %p Esta imagen la has subido tu, que lo sé yo
-      - if @picture.description.blank? 
-        #titulerForm
-          Si le pones un título, me das la vida!
-          %input#pictureTitle{:type => "text", :placeholder => "Ej: Un indio dando botes"}
-          %a#bautizer.btn.btn-inverse{:href => "#", :data => {:id => @picture.id}}
-            Bautizar
+  - if @picture.user_id == current_user.id && @picture.description.blank?
+    #user-form
+      #titulerForm
+        Si le pones un título, me das la vida!
+        %input#pictureTitle{:type => "text", :placeholder => "Ej: Un indio dando botes"}
+        %a#bautizer.btn.btn-inverse{:href => "#", :data => {:id => @picture.id}}
+          Bautizar
   %h3#pictureTitulaco= @picture.description
   #stats
+    - if @picture.user_id == current_user.id
+      %p Esta imagen la has subido tu, que lo sé yo
     - if @cards.size ==0
-      No hay cromos todavía...
+      %p No hay cromos todavía...
     - else
       =@cards.size 
       =@cards.size!=1?"cromos":"cromo"

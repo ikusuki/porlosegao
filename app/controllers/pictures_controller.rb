@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 class PicturesController < ApplicationController
-
+  
   def index
     @id = params[:id] if params[:id]
     @pictures = Picture.find(:all, :order => "id desc")
