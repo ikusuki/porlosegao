@@ -181,7 +181,31 @@
   -webkit-box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 4px 4px 3px rgba(0,0,0,0.6);
   box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
+  .credits {
+    display:none;
+    float:right;
+    color:white;
+    position:relative;
+    top:0px;
+    right:12px;
+    border:1px solid darkgray;
+    border-radius:7px 7px 0px 0px;
+    padding:3px;
+    padding-top:0px;
+    background-color:darkgray;
+    z-index:1;
+    height:0px;
+    a {
+      font-weight:bold;
+      text-decoration:none;
+      color:#CBDEF2;
+    }
+    a:hover {
+      color:black;
+    }
+  }
   .inside {
+    z-index:10;
     width:500px;
     margin:auto;
     text-align:center;

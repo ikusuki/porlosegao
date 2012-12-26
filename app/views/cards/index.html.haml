@@ -3,6 +3,12 @@
 #cromos
   - @cards.each do |card|
     .cromo{:style => "height:#{card.height}px; display:none"}
+      .credits
+        %a{:href=> "#"}="#{card.user.username}'s"
+        cromo 
+        | 
+        %a{:href => "#"}="#{card.picture.user.username}'s"
+        imagen
       .inside
         = image_tag card.picture.url
         .comment
