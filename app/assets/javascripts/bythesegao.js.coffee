@@ -61,7 +61,7 @@ $ ->
       i++
     number_of_lines = 1 if number_of_lines == 0
     commentSpace = 140
-    commentSpace +=  (number_of_lines * 35) if number_of_lines>1
+    commentSpace +=  (number_of_lines * 25) if number_of_lines>1
     console.log("lines:" + number_of_lines)
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
