@@ -55,8 +55,8 @@ $ ->
   $('#daleCera').click ->
     lines = lineBreaksCount($('#cromoText').val())
     console.log ("lines detected:" + lines)
-    commentSpace = 160
-    commentSpace +=  (lineas * 55) if lines>1
+    commentSpace = 140
+    commentSpace +=  (lines * 35) if lines>0
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
     $('#cromoForm form').submit()
