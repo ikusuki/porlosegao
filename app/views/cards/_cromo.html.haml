@@ -9,8 +9,14 @@
       | 
       %a{:href => "#"}="#{card.picture.user.username}'s"
       imagen
-  .votos
-    = image_tag "votar.gif"
+  .votosContainer
+    .votos
+      %a.cromoplus
+        = image_tag "votar.gif"
+      .numeroVotos
+        = card.votes.blank? ? "000" : card.votes.to_s.rjust(3,'0')
+        = image_tag "icon_up.gif"
+
   .inside
     = image_tag card.picture.url
     .comment

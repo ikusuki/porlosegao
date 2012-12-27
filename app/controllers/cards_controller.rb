@@ -15,4 +15,5 @@ class CardsController < ApplicationController
     Card.create(:picture_id => picture_id, :height => params[:card_height], :user_id => current_user.id, :comment => params[:cromoText])
     redirect_to "/cromosImagen/#{picture_id}"
   end
+
 end

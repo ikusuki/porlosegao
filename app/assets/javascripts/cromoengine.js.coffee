@@ -15,8 +15,7 @@ $ ->
       top: '-20px'
     , 100
     $('.votos', $(this)).stop().show().animate
-      width: '48px'
-      left: '-56px'
+      left: '0px'
     , 100
   ).live 'mouseout', ->
     $credits = $('.credits', $(this))
@@ -30,13 +29,17 @@ $ ->
     $votos = $('.votos', $(this))
     unless $votos.hasClass('hover')
       $votos.stop().animate
-        width: '0px'
-        left: '0px'
+        left: '55px'
       , 100
-      , ->
-        $(this).hide()
 
   $('.credits, .votos').live('mouseover', ->
     $(this).addClass('hover')
   ).live 'mouseout', ->
     $(this).removeClass('hover')
+
+  $('.cromoplus').click ->
+    $(this).css
+      opacity: 0.5
+
+
+
