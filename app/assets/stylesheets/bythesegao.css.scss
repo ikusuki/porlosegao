@@ -206,7 +206,7 @@
   }
   .votosContainer {
     float:left;
-    position:relative;
+    position:absolute;
     top:10px;  
     height:100px;
     width:55px;
@@ -251,8 +251,6 @@
     padding-top:50px;
     img {
       display:none;
-      position:relative;
-      left:-25px;
       max-width:450px;
       border:1px double gray;
       -webkit-transition: opacity 0.3s;
