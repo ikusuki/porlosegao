@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   def create_cromo
     #todo: error management
     picture_id = params[:picture_id]
-    Card.create(:picture_id => picture_id, :height => params[:card_height], :user_id => current_user.id, :comment => params[:cromoText])
+    Card.create(:picture_id => picture_id, :height => params[:card_height], :user_id => current_user.id, :comment => params[:cromoText], :votos => 0)
     redirect_to "/cromosImagen/#{picture_id}"
   end
 
