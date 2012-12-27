@@ -14,7 +14,7 @@
       %a.cromoplus
         = image_tag "votar.gif"
       .numeroVotos
-        = card.votes.blank? ? "000" : card.votes.to_s.rjust(3,'0')
+        = card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
         = image_tag "icon_up.gif"
 
   .inside
