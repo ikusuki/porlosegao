@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.find(:all, :order => "id desc")
+    @cards = Card.find(:all, :order => "votes, id desc")
   end
 
   def from_picture
