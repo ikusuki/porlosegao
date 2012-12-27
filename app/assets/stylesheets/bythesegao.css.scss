@@ -177,11 +177,12 @@
   width:510px;
   background-color:white;
   border:1px solid lightgray;
-  border-radius:5px;
-  -webkit-box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 14px 14px 30px rgba(0,0,0,0.6);
-  box-shadow: 14px 14px 30px rgba(0, 0, 0, 0.6);
+  border-radius:10px 10px 0px 0px;
+  -webkit-box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 4px 4px 3px rgba(0,0,0,0.6);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
   .inside {
+    z-index:10;
     width:500px;
     margin:auto;
     text-align:center;

@@ -60,7 +60,7 @@ $ ->
       number_of_lines++ if lines[i].length>40
       i++
     number_of_lines = 1 if number_of_lines == 0
-    commentSpace = 140
+    commentSpace = 130
     commentSpace +=  (number_of_lines * 25) if number_of_lines>1
     console.log("lines:" + number_of_lines)
 
