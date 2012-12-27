@@ -14,6 +14,10 @@ $ ->
       height: '15px'
       top: '-20px'
     , 100
+    $('.votos', $(this)).stop().show().animate
+      width: '48px'
+      left: '-56px'
+    , 100
   ).live 'mouseout', ->
     $credits = $('.credits', $(this))
     unless $credits.hasClass('hover')
@@ -23,7 +27,16 @@ $ ->
       , 50
       , ->
         $(this).hide()
-  $('.credits').live('mouseover', ->
+    $votos = $('.votos', $(this))
+    unless $votos.hasClass('hover')
+      $votos.stop().animate
+        width: '0px'
+        left: '0px'
+      , 100
+      , ->
+        $(this).hide()
+
+  $('.credits, .votos').live('mouseover', ->
     $(this).addClass('hover')
   ).live 'mouseout', ->
     $(this).removeClass('hover')

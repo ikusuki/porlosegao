@@ -1,0 +1,17 @@
+.cromo{:style => "height:#{card.height}px; display:none"}
+  .credits
+    - if card.user.id == card.picture.user.id
+      %a{:href => "#"}="#{card.user.username}'s"
+      cromo & imagen
+    - else
+      %a{:href=> "#"}="#{card.user.username}'s"
+      cromo 
+      | 
+      %a{:href => "#"}="#{card.picture.user.username}'s"
+      imagen
+  .votos
+    = image_tag "votar.gif"
+  .inside
+    = image_tag card.picture.url
+    .comment
+      =simple_format(card.comment)
