@@ -16,6 +16,24 @@ $ ->
   window.showMessage 'info'
   window.showMessage 'error'
 
+  $('.cromoplus').click (e) ->
+    if ($('#upload').length == 0)
+      $('.logind h4').html("Vamos pa dentro primero!")
+      $('.logind').dropdown('toggle')
+      e.stopPropagation()
+    else
+      $.ajax
+        type: "POST"
+        url: "/users/vote_card"
+        data: {"card_id": $(this).data('cromo_id')}
+        success: (data) ->
+          alert (data["votos"])
+        error: (data) ->
+          alert (data["msg"])
+        true
+    true
+
+
   # When message is clicked, hide it
   $(".message").click ->
     unless $(this).hasClass('no-hide')
@@ -37,7 +55,7 @@ $ ->
         true
     true
   $('#logueate').click ->
-    $('#login').click()
+    $('#login-link').click()
     false
   $('#crearCromo').click ->
     $(this).hide()
@@ -52,6 +70,7 @@ $ ->
       $('#stats, #pictureTitulaco').slideDown "fast"
       $('#crearCromo').show()
   false
+
   $('#daleCera').click ->
     lines = $('#cromoText').val().split("\n")
     number_of_lines = lines.length

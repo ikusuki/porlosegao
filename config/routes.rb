@@ -19,6 +19,11 @@ Porlosegao::Application.routes.draw do
       post :bautizer
     end
   end
+  resources :users do
+    collection do
+      post :vote_card
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -29,11 +29,11 @@
                     Apúntame a esta gaita
                   .daleaqui
                     = image_tag "declare.gif"
-            %li.dropdown
-              %a#login.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+            %li.dropdown.logindrop
+              %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
                 Login
                 %strong.caret
-              .dropdown-menu{:style => "padding: 15px; padding-bottom:0px"}
+              .dropdown-menu.logind{:style => "padding: 15px; padding-bottom:0px"}
                 %h4 Vamos pa dentro!
                 = form_for(:user, :url => session_path(:user), :html => {:id => "login_form"}) do |f|
                   = f.email_field :email, :placeholder => "Emailer", :class => "validate[required,custom[email]]", "data-prompt-position" => "topRight:-100,0"

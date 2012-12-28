@@ -11,7 +11,7 @@
       imagen
   .votosContainer
     .votos
-      %a.cromoplus
+      %a.cromoplus{:data => {:cromo_id => card.id}}
         = image_tag "votar.gif"
       .numeroVotos
         = card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
