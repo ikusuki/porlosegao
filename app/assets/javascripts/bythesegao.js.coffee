@@ -16,11 +16,13 @@ $ ->
   window.showMessage 'info'
   window.showMessage 'error'
 
-  $('.cromoplus').click (e) ->
+
+
+  $('.cromoplus').click ->
     if ($('#upload').length == 0)
       $('.logind h4').html("Vamos pa dentro primero!")
-      $('.logind').dropdown('toggle')
-      e.stopPropagation()
+      $('.logindrop').dropdown('show')
+      false
     else
       $.ajax
         type: "POST"
