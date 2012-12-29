@@ -2,8 +2,12 @@
 class PicturesController < ApplicationController
   
   def index
-    @id = params[:id] if params[:id]
-    @pictures = Picture.find(:all, :order => "id desc")
+    @pictures = Picture.find(:all, :order => "cards_count desc")    
+  end
+
+  def nuevas
+    @pictures = Picture.find(:all, :order => "created_at desc")
+    render 'index'
   end
 
   def create

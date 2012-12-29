@@ -16,6 +16,9 @@ Porlosegao::Application.routes.draw do
   end
   match "cromosImagen/:id" => 'cards#from_picture'
   resources :pictures do
+    collection do
+      get :nuevas
+    end
     member do
       post :bautizer
     end
