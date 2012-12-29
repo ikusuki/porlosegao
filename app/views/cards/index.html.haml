@@ -1,5 +1,12 @@
 - content_for :head do
   = javascript_include_tag "toscawookmark", "cromoengine"
+
+.top-buttons
+  %a.btn.btn-large{:href => cards_path}
+    +Votados 
+  %a.btn.btn-large{:href => nuevos_cards_path}
+    +Nuevos
+
 #cromos
   - @cards.each do |card|
     = render 'cromo', :card => card

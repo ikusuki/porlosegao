@@ -167,6 +167,18 @@
     }
   }
 }
+.top-buttons {
+  top:-30px;
+  margin:auto;
+  position:relative;
+  text-align:center;
+  a {
+    margin:20px;
+  }
+  a:hover {
+    text-decoration:none;
+  }
+}
 #cromos {
   width:100%;
   position:relative;

@@ -85,7 +85,7 @@ hideAllMessages = () ->
   true
 
 window.showMessage = (type) ->
-  $("." + type).animate
+  $("." + type).delay(2000).show().animate
     top: "0"
   , 500
   $('.info:not(.no-hide)').delay(5000).animate

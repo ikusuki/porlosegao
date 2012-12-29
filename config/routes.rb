@@ -11,6 +11,7 @@ Porlosegao::Application.routes.draw do
   resources :cards do
     collection do
       post :create_cromo
+      get :nuevos
     end
   end
   match "cromosImagen/:id" => 'cards#from_picture'

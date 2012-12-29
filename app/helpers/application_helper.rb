@@ -11,7 +11,8 @@ module ApplicationHelper
                       "Yo hoy ando comsí comsá, regulerer flavour day...",
                       "¿Coooomo? ¿que vas a meter un cromo? ole!",
                       "Abrígate que hace frío, mecagüen!",
-                      "¡Mecagüen la madre que parió a Peneke, que rasca!"]
+                      "¡Mecagüen la madre que parió a Peneke, que rasca!",
+                      "¡Mira a ver si ves que eso!"]
 
     frases_chorras[rand(frases_chorras.length)]
   end
