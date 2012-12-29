@@ -2,9 +2,9 @@
   = javascript_include_tag "toscawookmark", "cromoengine"
 
 .top-buttons
-  %a.btn.btn-large{:href => cards_path}
+  %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path))}
     +Votados 
-  %a.btn.btn-large{:href => nuevos_cards_path}
+  %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path))}
     +Nuevos
 
 #cromos

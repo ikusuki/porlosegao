@@ -7,6 +7,14 @@ class CardsController < ApplicationController
     end
   end
 
+  def nuevos
+    @cards = Card.find(:all, :order => "created_at desc")
+    if !current_user.blank?
+      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
+    end
+    render 'index'
+  end
+
   def from_picture
     @picture = Picture.find(params[:id])
     @cards = Card.order("id desc").where(:picture_id => params[:id])

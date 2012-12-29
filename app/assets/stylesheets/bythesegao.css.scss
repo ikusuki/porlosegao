@@ -3,7 +3,11 @@
   font-size: 16px;
   line-height: 30px;
 }
-
+.btn.btn-large.active {
+  color: white;
+  background: black;
+  font-size: 28px;
+}
 .btn, .btn:hover {
   color: #88a5b1;
 }

@@ -8,7 +8,7 @@ Porlosegao::Application.routes.draw do
     :action => 'show',
     :requirements => {:id => /[a-z]+/ }
 
-  resources :cards do
+  resources :cards, :path => :cromos do
     collection do
       post :create_cromo
       get :nuevos
