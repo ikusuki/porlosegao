@@ -8,7 +8,7 @@
     #user-form
       #titulerForm
         Si le pones un título, me das la vida!
-        %input#pictureTitle{:type => "text", :placeholder => "Ej: Un indio dando botes"}
+        %input#pictureTitle{:type => "text", :placeholder => "Ej: #{get_create_placeholder}"}
         %a#bautizer.btn.btn-inverse{:href => "#", :data => {:id => @picture.id}}
           Bautizar
   %h3#pictureTitulaco= @picture.description

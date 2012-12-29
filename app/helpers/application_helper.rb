@@ -29,4 +29,12 @@ module ApplicationHelper
     saludos[rand(saludos.length)]
   end
 
+  def get_create_placeholder 
+    placeholders = ["Un mono dando botes",
+                    "Un gatete kawaii",
+                    "Songoku cabreao",
+                    "Mi prima la coja"]
+    placeholders[rand(placeholders.length)]
+  end
+
 end
