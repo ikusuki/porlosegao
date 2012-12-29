@@ -15,7 +15,7 @@
   %body{:id => "#{params[:controller]}_#{params[:action]}"}
     = render 'layouts/header'
     - if current_user
-      .warning.message
+      .warning.message.hide
         #upload_message
         .progress.progress-striped.active
           .bar

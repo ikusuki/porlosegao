@@ -11,10 +11,11 @@
       imagen
   .votosContainer
     .votos
-      %a.cromoplus{:data => {:cromo_id => card.id}}
-        = image_tag "votar.gif"
+      %a.cromoplus{:data => {:cromo_id => card.id}, :class => ("clicked" if !current_user.blank? && @votes.include?(card.id))}
+        .imgContainer
+          = image_tag "votar.gif"
       .numeroVotos
-        = card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
+        .n{:id => "n#{card.id}"}= card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
         = image_tag "icon_up.gif"
 
   .inside

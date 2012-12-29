@@ -8,7 +8,10 @@ module ApplicationHelper
                       "Por casualidad... ¿no tendreis séis dedos en vuestra mano derecha?",
                       "¿No serás franchute, tu? ¿no? quesquesé quesquesé",
                       "Bueno, te dejo que tengo las lentejas en el fuego!",
-                      "Yo hoy ando comsí comsá, regulerer flavour day..."]
+                      "Yo hoy ando comsí comsá, regulerer flavour day...",
+                      "¿Coooomo? ¿que vas a meter un cromo? ole!",
+                      "Abrígate que hace frío, mecagüen!",
+                      "¡Mecagüen la madre que parió a Peneke, que rasca!"]
 
     frases_chorras[rand(frases_chorras.length)]
   end
@@ -19,9 +22,9 @@ module ApplicationHelper
               "#{username} is in da house!!", 
               "Muy buenas, #{username}",
               "Leroloerijiiiii #{username}",
-              "Ala, ya ha llegao #{username}, ya estamos todos!",
+              "Ala, ya ha llegao #{username}, ¡¡ya estamos todos!",
               "Hombre, #{username}, a ti te quería ver yo!",
-              "Por fin aparece #{username}, quita el cartel de 'Se Busca' ya",
+              "Por fin aparece #{username}, ¡¡quita el cartel!!",
               "¿#{username} ande te habías metío, chiquillo?"]
     saludos[rand(saludos.length)]
   end

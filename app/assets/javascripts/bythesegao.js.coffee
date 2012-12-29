@@ -16,26 +16,6 @@ $ ->
   window.showMessage 'info'
   window.showMessage 'error'
 
-
-
-  $('.cromoplus').click ->
-    if ($('#upload').length == 0)
-      $('.logind h4').html("Vamos pa dentro primero!")
-      $('.logindrop').dropdown('show')
-      false
-    else
-      $.ajax
-        type: "POST"
-        url: "/users/vote_card"
-        data: {"card_id": $(this).data('cromo_id')}
-        success: (data) ->
-          alert (data["votos"])
-        error: (data) ->
-          alert (data["msg"])
-        true
-    true
-
-
   # When message is clicked, hide it
   $(".message").click ->
     unless $(this).hasClass('no-hide')
@@ -57,7 +37,7 @@ $ ->
         true
     true
   $('#logueate').click ->
-    $('#login-link').click()
+    $('.logindrop a').click()
     false
   $('#crearCromo').click ->
     $(this).hide()

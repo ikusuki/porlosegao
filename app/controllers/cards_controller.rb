@@ -2,6 +2,9 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.find(:all, :order => "votos desc, id desc")
+    if !current_user.blank?
+      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
+    end
   end
 
   def from_picture

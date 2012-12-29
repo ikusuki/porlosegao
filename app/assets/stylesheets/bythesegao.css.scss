@@ -222,8 +222,15 @@
       border-radius:7px 0px 0px 7px;
       padding:3px;
       z-index:99;
+      .imgContainer {
+        height:50px;
+      }
       .cromoplus img{
+        position:relative;
         cursor:pointer;
+      }
+      .cromoplus.clicked img{
+        opacity:0.5 !important;
       }
     }
     .numeroVotos {
