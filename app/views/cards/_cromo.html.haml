@@ -19,6 +19,7 @@
         = image_tag "icon_up.gif"
 
   .inside
-    = image_tag card.picture.url
-    .comment
-      =simple_format(card.comment)
+    %a{:href => "/cromosImagen/#{card.picture.id}"}
+      = image_tag card.picture.url
+      .comment
+        =simple_format(card.comment)

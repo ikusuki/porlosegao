@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.find(:all, :order => "votos desc, id desc")
+    @cards = Card.find(:all, :order => "votos desc")
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
@@ -17,7 +17,11 @@ class CardsController < ApplicationController
 
   def from_picture
     @picture = Picture.find(params[:id])
-    @cards = Card.order("id desc").where(:picture_id => params[:id])
+    @cards = Card.order("created_at desc").where(:picture_id => params[:id])
+    if !current_user.blank?
+      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
+    end
+
   end
   
   def create_cromo

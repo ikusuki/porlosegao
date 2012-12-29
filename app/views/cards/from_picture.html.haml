@@ -39,8 +39,5 @@
 
 #cromos
   - @cards.each do |card|
-    .cromo{:style => "height:#{card.height}px; display:none"}
-      .inside
-        = image_tag card.picture.url
-        .comment
-          =simple_format(card.comment)
+    = render 'cromo', :card => card
+
