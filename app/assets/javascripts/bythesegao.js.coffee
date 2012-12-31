@@ -59,6 +59,8 @@ $ ->
     i = 0
     while i < lines.length
       number_of_lines++ if lines[i].length>40
+      number_of_lines++ if lines[i].length>80
+      number_of_lines++ if lines[i].length>120
       i++
     number_of_lines = 1 if number_of_lines == 0
     commentSpace = 130
