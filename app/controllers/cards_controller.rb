@@ -5,6 +5,7 @@ class CardsController < ApplicationController
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
+    render 'cards/smartphone/index' if @mobile
   end
 
   def nuevos
@@ -12,6 +13,7 @@ class CardsController < ApplicationController
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
+    render 'cards/smartphone/index' and return if @mobile
     render 'index'
   end
 
