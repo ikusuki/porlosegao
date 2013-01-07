@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.find(:all, :order => "votos desc")
+    @cards = Card.find(:all, :order => "votos desc", :limit => 60)
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
@@ -9,7 +9,7 @@ class CardsController < ApplicationController
   end
 
   def nuevos
-    @cards = Card.find(:all, :order => "created_at desc")
+    @cards = Card.find(:all, :order => "created_at desc", :limit => 60)
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
