@@ -1,6 +1,5 @@
 .cromo.mobile
   .inside
-    %a{:href => "/cromosImagen/#{card.picture.id}"}
-      = image_tag card.picture.url
-      .comment
-        =simple_format(card.comment)
+    = image_tag card.picture.url
+    .comment
+      =simple_format(card.comment)
