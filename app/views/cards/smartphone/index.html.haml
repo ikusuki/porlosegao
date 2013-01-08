@@ -1,7 +1,10 @@
+- content_for :head do
+  = javascript_include_tag "votos_mobile"
+
 .top-buttons
-  %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path))}
+  %a.btn{:href => cards_path, :class => ("active" if current_page?(cards_path))}
     +Votados 
-  %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
+  %a.btn{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
     +Nuevos
 
 #cromos 
