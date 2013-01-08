@@ -188,21 +188,6 @@
   position:relative;
   clear:both;
 }
-.cromo.mobile {
-  margin:auto;
-  margin-top:30px;
-  position:relative;
-  display:block;
-  .inside {
-    img {    display:block; position:relative; left:30px;}
-    .comment {
-      height:auto;
-      p {
-        top:0px;
-        height:auto;
-      }
-    }
-  }
 
   .votos, .credits, .votosContainer {
     display:block;
