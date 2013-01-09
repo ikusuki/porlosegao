@@ -37,7 +37,7 @@
                 %h4 Vamos pa dentro!
                 = form_for(:user, :url => session_path(:user), :html => {:id => "login_form"}) do |f|
                   = f.email_field :email, :placeholder => "Emailer", :class => "validate[required,custom[email]]", "data-prompt-position" => "topRight:-100,0"
-                  = f.password_field :password, :placeholder => "Contraseñser", :class => "validate[required]", "data-prompt-position" => "bottomRight:-100,0"
+                  = f.password_field :password, :placeholder => "Contraseñer", :class => "validate[required]", "data-prompt-position" => "bottomRight:-100,0"
                   .daleaqui
                     = image_tag "vainas.gif"
                   %button#login.btn.btn-primary{:href => "#"}
