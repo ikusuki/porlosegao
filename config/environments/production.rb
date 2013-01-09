@@ -5,7 +5,7 @@ Porlosegao::Application.configure do
   ENV['S3_BUCKET']= 'bythesegao'
 
 
-  config.assets.precompile += %w( jquery.imgr.min toscawookmark.js cards.js votos_mobile.js cromoengine.js bythesegao.css cards.css easing.js bootstrap.min.js bootstrap.css  )
+  config.assets.precompile += %w( jquery.doubletap.js jquery.imgr.min toscawookmark.js cards.js votos_mobile.js cromoengine.js bythesegao.css cards.css easing.js bootstrap.min.js bootstrap.css  )
 
 
   # Settings specified here will take precedence over those in config/application.rb
