@@ -12,3 +12,7 @@
 //
 //= require bootstrap.min
 //= require jquery.doubletap
+//= require jquery.validationEngine-es
+//= require jquery.validationEngine
+//= require bythemobile
+

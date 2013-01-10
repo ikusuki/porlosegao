@@ -1,3 +1,8 @@
+body {
+  -webkit-user-select: none; // webkit (safari, chrome) browsers
+  -moz-user-select: none; // mozilla browsers
+  -khtml-user-select: none; // webkit (konqueror) browsers
+}
 .navbar {    border-bottom:1px solid gray !important;}
 .container {
   opacity:1;

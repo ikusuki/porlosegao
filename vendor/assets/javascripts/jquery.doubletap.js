@@ -25,3 +25,12 @@ jQuery.event.special.dblclick = {
             $elem.data('lastTouch', now);
     }
 };
+
+$(function(){
+    document.ondblclick = function(evt) {
+    if (window.getSelection)
+        window.getSelection().removeAllRanges();
+    else if (document.selection)
+        document.selection.empty();
+    }
+});

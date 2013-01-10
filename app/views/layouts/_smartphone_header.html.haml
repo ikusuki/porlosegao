@@ -7,7 +7,7 @@
       .nav-collapse
         %ul.nav.pull-right
           - if current_user
-            %li
+            %li{:style => "display:none"}
               %a#upload{:href => "#"}
                 Subir imagen
             %li 

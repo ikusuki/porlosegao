@@ -1,4 +1,4 @@
-.cromo.mobile
+.cromo.mobile.noSelect{:data => {:cromo_id => card.id}}
   .credits
     - if card.user.id == card.picture.user.id
       %a{:href => "#"}="#{card.user.username}'s"
@@ -11,7 +11,7 @@
       imagen
   .inside
     = image_tag card.picture.url
-    .comment
+    .comment.noSelect
       =simple_format(card.comment)
   .votosContainer
     .votos
