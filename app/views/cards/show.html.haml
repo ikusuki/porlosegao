@@ -1,5 +1,13 @@
 - content_for :head do
   = javascript_include_tag "card_show", "votoclick"
+  %meta{:property=>"og:title", :content => "#{@card.picture.description.blank? ? "Cromico!" : @card.picture.description}"}
+  %meta{:property=>"og:type", :content => "article"}
+  %meta{:property=>"og:image", :content => "#{@card.picture.url}"}
+  %meta{:property=>"og:url", :content => "#{card_url(@card.id)}"}
+  %meta{:property=>"og:site_name", :content =>"PorLoSegao.com"}
+  %meta{:propety=>"og:description", :content => "#{@card.comment}"}
+
+
 #cromo-container
   = render 'cromo', :card => @card, :single => true
   #social
