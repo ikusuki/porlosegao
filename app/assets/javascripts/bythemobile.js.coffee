@@ -5,7 +5,6 @@ $ ->
     false
 
 launchApp = (schema, url) ->
-  alert (schema)
   iframe = document.createElement("iframe")
   iframe.src = schema
   document.body.appendChild iframe
