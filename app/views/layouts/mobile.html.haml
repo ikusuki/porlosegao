@@ -11,6 +11,7 @@
     = javascript_include_tag 'mobile'
     = yield :head
   %body{:id => "#{params[:controller]}_#{params[:action]}"}
+    = render 'layouts/fb_init'
     = render 'layouts/smartphone_header'
 
     = yield

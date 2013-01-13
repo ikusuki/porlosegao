@@ -5,6 +5,7 @@ class CardsController < ApplicationController
     if !current_user.blank?
       @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id)
     end
+    render 'cards/smartphone/show' if @mobile
   end
 
   def index

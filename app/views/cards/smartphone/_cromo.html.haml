@@ -10,12 +10,13 @@
       %a{:href => "#"}="#{card.picture.user.username}'s"
       imagen
   .inside
-    = image_tag card.picture.url
-    .comment.noSelect
-      =simple_format(card.comment)
+    %a{:href => card_path(card)}
+      = image_tag card.picture.url
+      .comment.noSelect
+        =simple_format(card.comment)
   .votosContainer
     .votos
-      %a.cromoplus{:data => {:cromo_id => card.id}, :class => ("clicked" if !current_user.blank? && @votes.include?(card.id))}
+      %a.cromoplus{:data => {:cromo_id => card.id}, :class => vote_class(card.id)}
         .imgContainer
           = image_tag "votar.gif"
       .numeroVotos

@@ -1,5 +1,5 @@
 - content_for :head do
-  = javascript_include_tag "card_show", "votoclick"
+  = javascript_include_tag "votos_mobile"
   %meta{:property=>"og:title", :content => "#{@card.picture.description.blank? ? "Cromico!" : @card.picture.description}"}
   %meta{:property=>"og:type", :content => "article"}
   %meta{:property=>"og:image", :content => "#{@card.picture.url}"}
@@ -7,14 +7,10 @@
   %meta{:property=>"og:site_name", :content =>"PorLoSegao.com"}
   %meta{:property=>"og:description", :content => "#{@card.comment}"}
 
-
 #cromo-container
-  = render 'cromo', :card => @card, :single => true
+  = render '/cards/smartphone/cromo', :card => @card, :single => true
   #social
     #twitter
       = render '/layouts/tw_button', :card_id => @card.id
     #fb
       = render '/layouts/fb_like_button'
-  #operations
-    %a.btn.btn-info.btn-large{:href => "/cromosImagen/#{@card.picture_id}"}
-      Ver imagen / Crear cromo
