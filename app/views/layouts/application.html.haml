@@ -13,6 +13,7 @@
     = javascript_include_tag 'application'
     = yield :head
   %body{:id => "#{params[:controller]}_#{params[:action]}"}
+    = render 'layouts/fb_init'
     = render 'layouts/header'
     - if current_user
       .warning.message.hide

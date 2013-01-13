@@ -1,5 +1,12 @@
 class CardsController < ApplicationController
 
+  def show
+    @card = Card.find(params[:id])
+    if !current_user.blank?
+      @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id)
+    end
+  end
+
   def index
     @cards = Card.find(:all, :order => "votos desc", :limit => 100)
     if !current_user.blank?

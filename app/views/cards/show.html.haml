@@ -1,0 +1,12 @@
+- content_for :head do
+  = javascript_include_tag "card_show", "votoclick"
+#cromo-container
+  = render 'cromo', :card => @card, :single => true
+  #social
+    #twitter
+      = render '/layouts/tw_button', :card_id => @card.id
+    #fb
+      = render '/layouts/fb_like_button'
+  #operations
+    %a.btn.btn-info.btn-large{:href => "/cromosImagen/#{@card.picture_id}"}
+      Ver imagen / Crear cromo

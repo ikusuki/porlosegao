@@ -11,5 +11,6 @@
  *= require_self
  *= require bythemobile
  *= require bootstrap
+ *= require botoncicos
  *= require validationEngine.jquery
  */
