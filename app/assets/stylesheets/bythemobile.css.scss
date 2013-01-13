@@ -193,3 +193,13 @@ body {
     }
   }
 }
+ul.social {
+  list-style-type:none;
+  position:absolute;
+  right:10px;
+  bottom:-75px;
+  li {
+    float:left;
+    padding:5px;
+  }
+}
