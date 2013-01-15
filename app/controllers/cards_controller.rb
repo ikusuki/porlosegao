@@ -9,7 +9,21 @@ class CardsController < ApplicationController
   end
 
   def index
-    @cards = Card.find(:all, :order => "votos desc", :limit => 100)
+    params[:criteria] = "hoy" if params[:criteria].blank?
+    case params[:criteria]
+    when "hoy"
+      @cards = Card.select("cards.*, coalesce(votes.created_at, null) hoy").joins("LEFT OUTER JOIN votes on votes.card_id = cards.id and votes.created_at between '#{DateTime.now.beginning_of_day.to_s(:db)}' and '#{DateTime.now.end_of_day.to_s(:db)}'").order("hoy desc, votos").limit(100).all
+    when "estaSemana"
+      @cards = Card.select("cards.*, coalesce(votes.created_at, null) hoy").joins("LEFT OUTER JOIN votes on votes.card_id = cards.id and votes.created_at between '#{DateTime.now.beginning_of_week.to_s(:db)}' and '#{DateTime.now.end_of_week.to_s(:db)}'").order("hoy desc, votos").limit(100).all
+    when "semanaPasada"
+      @cards = Card.select("cards.*, coalesce(votes.created_at, null) hoy").joins("LEFT OUTER JOIN votes on votes.card_id = cards.id and votes.created_at between '#{1.week.ago.beginning_of_day.to_s(:db)}' and '#{1.week.ago.end_of_day.to_s(:db)}'").order("hoy desc, votos").limit(100).all
+    when "esteMes"
+      @cards = Card.select("cards.*, coalesce(votes.created_at, null) hoy").joins("LEFT OUTER JOIN votes on votes.card_id = cards.id and votes.created_at between '#{DateTime.now.beginning_of_month.to_s(:db)}' and '#{DateTime.now.end_of_month.to_s(:db)}'").order("hoy desc, votos").limit(100).all
+    when "dePaSiempre"
+      @cards = Card.find(:all, :order => "votos desc", :limit => 100)
+    else
+      @cards = Card.find(:all, :order => "votos desc", :limit => 100)
+    end
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
@@ -31,7 +45,6 @@ class CardsController < ApplicationController
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
-
   end
   
   def create_cromo

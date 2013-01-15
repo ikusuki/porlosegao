@@ -8,6 +8,10 @@ Porlosegao::Application.routes.draw do
     :action => 'show',
     :requirements => {:id => /[a-z]+/ }
 
+  match 'cromos/ninki/:criteria',
+    :controller => "cards",
+    :action => "index"
+
   resources :cards, :path => :cromos do
     collection do
       post :create_cromo
