@@ -2,10 +2,22 @@
   = javascript_include_tag "votos_mobile"
 
 .top-buttons
-  %a.btn{:href => cards_path, :class => ("active" if current_page?(cards_path))}
-    +Votados 
-  %a.btn{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
+  %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path) || !params[:criteria].blank?)}
+    +Votados
+  %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
     +Nuevos
+- if current_page?(cards_path) || !params[:criteria].blank?
+  .ordenAquiCopon
+    %a.btn{:href => "/cromos/ninki/hoy", :class => ("btn-inverse" if params[:criteria]=="hoy")}
+      Hoy
+    %a.btn{:href => "/cromos/ninki/estaSemana", :class => ("btn-inverse" if params[:criteria]=="estaSemana")}
+      Esta semana
+    %a.btn{:href => "/cromos/ninki/semanaPasada", :class => ("btn-inverse" if params[:criteria]=="semanaPasada")}
+      La semana pasada
+    %a.btn{:href => "/cromos/ninki/esteMes", :class => ("btn-inverse" if params[:criteria]=="esteMes")}
+      Este mes
+    %a.btn{:href => "/cromos/ninki/dePaSiempre", :class => ("btn-inverse" if params[:criteria]=="dePaSiempre")}
+      Desde siempre
 
 #cromos 
   - @cards.each do |card|
