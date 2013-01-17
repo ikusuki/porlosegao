@@ -33,7 +33,6 @@ $ ->
             $('#n'+ data['id']).fadeOut 'fast', ->
               $(this).html(data["votos"]).fadeIn "fast", ->
                 $cromoplus = $(this).parent().prev()
-                console.log ($cromoplus.data())
                 if $cromoplus.data('restando')
                   $cromoplus.removeClass('clicked')
                   $cromoplus.find('img').attr('src', '/assets/votar.gif')
@@ -41,7 +40,7 @@ $ ->
                 else if $cromoplus.data('sumando')
                   setTimeout (->
                     window.gustico($cromoplus)
-                    ), 3000
+                    ), 5000
                   $cromoplus.data('sumando', false)
                   true
         true

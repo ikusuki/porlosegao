@@ -39,13 +39,57 @@
     }
   }
   #operations {
-    margin-bottom:50px;
-    height:200px;
     margin:auto;
     position:relative;
     text-align:center;
+    margin-bottom:20px;
     h3 {
       margin-top:20px;
+    }
+  }
+  #comments {
+    margin:auto;
+    margin-top:90px;
+    width:600px;
+    .porcomentar {
+      clear:both;
+      margin:0px;
+      padding:0px;
+      margin-bottom:-40px;
+    }
+    .porcomentar.right {
+      float:right;
+    }
+    .user {
+      clear:both;
+      display:table-cell;
+      .username {
+        font-size:14px;
+        display:inline;
+        font-weight:bold;
+      }
+    }
+    .com {
+      display:inline-block;
+      position:relative;
+      min-width:200px;
+      max-width:440px;
+      top:-10px;
+    }
+    .com.right {
+      background-color:#49afcd;
+    }
+    .triangle-right.right::after {
+      border-color: transparent #49afcd;
+    }
+
+    #ladrido {
+      clear:both;
+      background-color:black;
+      input {
+        height:30px;
+        width:560px;
+      }
     }
   }
 }

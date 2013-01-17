@@ -13,11 +13,13 @@ Porlosegao::Application.routes.draw do
     :action => "index"
 
   resources :cards, :path => :cromos do
+    resources :comments, :only => [:create]
     collection do
       post :create_cromo
       get :nuevos
     end
   end
+
   match "cromosImagen/:id" => 'cards#from_picture'
   resources :pictures do
     collection do

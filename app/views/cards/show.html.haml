@@ -1,4 +1,5 @@
 - content_for :head do
+  = stylesheet_link_tag "bubbles"
   = javascript_include_tag "card_show", "votoclick"
   %meta{:property=>"og:title", :content => "#{@card.picture.description.blank? ? "Cromico!" : @card.picture.description}"}
   %meta{:property=>"og:type", :content => "article"}
@@ -8,7 +9,7 @@
   %meta{:property=>"og:description", :content => "#{@card.comment}"}
 
 
-#cromo-container
+#cromo-container{:data => {:id => @card.id}}
   = render 'cromo', :card => @card, :single => true
   #social
     #twitter
@@ -18,3 +19,23 @@
   #operations
     %a.btn.btn-info.btn-large{:href => "/cromosImagen/#{@card.picture_id}"}
       Ver imagen / Crear cromo
+  #comments
+    %h3 Comentarios
+    - if @comments.size == 0
+      Nadie ha dicho ná de momenter
+    - else
+      - @comments.each_with_index do |comment,idx|
+        - left = (idx%2 == 0)
+        .porcomentar{:class => (left ? "left" : "right")}
+          .user
+            - if left
+              .username
+                %a{:href => "#"}=comment.user.username 
+            %p.com.triangle-right{:class => (left ? "left" : "right")}
+              =comment.comment
+            - if !left
+              .username
+                %a{:href => "#"}=comment.user.username 
+    - unless current_user.blank?
+      #ladrido.triangle-right
+        %input{:type=> :text, :placeholder => "Comenta algo, muchacho"}

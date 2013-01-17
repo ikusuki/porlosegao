@@ -11,16 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229063206) do
+ActiveRecord::Schema.define(:version => 20130117011422) do
 
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
     t.integer  "picture_id"
     t.string   "comment"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "height"
-    t.integer  "votos",      :default => 0
+    t.integer  "votos",          :default => 0
+    t.integer  "comments_count", :default => 0
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "comment"
+    t.integer  "user_id"
+    t.integer  "card_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pictures", :force => true do |t|

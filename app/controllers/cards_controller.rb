@@ -2,6 +2,7 @@ class CardsController < ApplicationController
 
   def show
     @card = Card.find(params[:id])
+    @comments = Comment.find_all_by_card_id(@card.id)
     if !current_user.blank?
       @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id)
     end
