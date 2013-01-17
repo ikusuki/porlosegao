@@ -81,6 +81,10 @@
     }
     .triangle-right.right::after {
       border-color: transparent #49afcd;
+      top:40%;
+    }
+    .triangle-right.left::after {
+      top:40%;
     }
 
     #ladrido {
