@@ -10,7 +10,7 @@ $ ->
   handler.toscamark(cromoptions)
 
   $('.cromo').live('mouseover', ->
-    $('ul.social, .commentIcon', $(this)).show()
+    $('ul.social', $(this)).show()
     $('.credits', $(this)).stop().show().animate
       height: '15px'
       top: '-20px'
@@ -19,7 +19,7 @@ $ ->
       left: '0px'
     , 100
   ).live 'mouseout', ->
-    $('ul.social, .commentIcon', $(this)).hide()
+    $('ul.social', $(this)).hide()
     $credits = $('.credits', $(this))
     unless $credits.hasClass('hover')
       $credits.stop().animate

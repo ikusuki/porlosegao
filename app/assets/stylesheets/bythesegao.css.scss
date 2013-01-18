@@ -259,17 +259,20 @@
     }
   }
   .commentIcon {
-    display:none;
+    display:block;
     position:absolute;
-    bottom:-40px;
-    left:20px;
+    bottom:-30px;
+    left:-30px;
     .cNumber {
       position:relative;
-      top:-32px;
-      color:#075698;
+      top:-40px;
+      color:white;
       font-size:18px;
-      left:10px;
+      left:15px;
       font-weight:bold;
+    }
+    .cNumber:hover {
+      color:black;
     }
   }
 
