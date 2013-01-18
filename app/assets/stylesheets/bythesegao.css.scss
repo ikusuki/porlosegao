@@ -258,6 +258,21 @@
       }
     }
   }
+  .commentIcon {
+    display:none;
+    position:absolute;
+    bottom:-40px;
+    left:20px;
+    .cNumber {
+      position:relative;
+      top:-32px;
+      color:#075698;
+      font-size:18px;
+      left:10px;
+      font-weight:bold;
+    }
+  }
+
 }
 #pictures {
  clear:both;

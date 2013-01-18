@@ -22,6 +22,11 @@
       = image_tag card.picture.url
       .comment
         =simple_format(card.comment)
+  .commentIcon
+    %a{:href => card_path(card.id)}
+      =image_tag "comentariosIcon.png"
+      .cNumber
+        =card.comments_count.to_s.rjust(2,'0')
   %ul.social
     %li
       %a{:href=> twitter_link(card), :target => "_blank"}
