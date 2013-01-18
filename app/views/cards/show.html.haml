@@ -20,9 +20,10 @@
     %a.btn.btn-info.btn-large{:href => "/cromosImagen/#{@card.picture_id}"}
       Ver imagen / Crear cromo
   #comments
-    %h3 Comentarios
+    %h3 Comentarios 
     - if @comments.size == 0
-      Nadie ha dicho ná de momenter
+      %p#nadie
+        Nadie ha dicho ná de momenter
     - else
       - @comments.each_with_index do |comment,idx|
         - left = (idx%2 == 0)
@@ -39,3 +40,12 @@
     - unless current_user.blank?
       #ladrido.triangle-right
         %input{:type=> :text, :placeholder => "Comenta algo, muchacho"}
+    - else
+      .p{:style=>"clear:both"}
+      %p
+        Tira
+        %a#padentrer{:href => "#"}
+          pa dentro 
+        pa comentar!
+        %br
+        %br
