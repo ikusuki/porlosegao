@@ -22,6 +22,13 @@
       .numeroVotos
         .n{:id => "n#{card.id}"}= card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
         = image_tag "icon_up.gif"
+  - if card.comments_count > 0
+    .commentIcon
+      %a{:href => card_path(card.id)}
+        =image_tag "comment.png"
+        .cNumber
+          =card.comments_count.to_s.rjust(2,'0')
+
   %ul.social
     %li
       %a{:href=> twitter_link(card), :target => "_blank"}

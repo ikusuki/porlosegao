@@ -158,6 +158,23 @@ body {
       }
     }
   }
+  .commentIcon {
+    display:block;
+    position:absolute;
+    bottom:-30px;
+    left:-20px;
+    .cNumber {
+      position:relative;
+      top:-40px;
+      color:white;
+      font-size:18px;
+      left:15px;
+      font-weight:bold;
+    }
+    .cNumber:hover {
+      color:black;
+    }
+  }
   .votosContainer {
     float:right;
     position:absolute;
@@ -215,3 +232,65 @@ ul.social {
     padding:5px;
   }
 }
+#comments {
+  margin:auto;
+  margin-top:40px;
+  width:90%;
+  #nadie {
+    display:inline;
+    font-size:18px;
+    margin:20px;
+  }
+  .porcomentar {
+    clear:both;
+    margin:0px;
+    padding:0px;
+    margin-bottom:-40px;
+  }
+  .porcomentar.right {
+    float:right;
+  }
+  .user {
+    clear:both;
+    display:table-cell;
+    .username {
+      font-size:14px;
+      display:inline;
+      font-weight:bold;
+    }
+  }
+  .com {
+    display:inline-block;
+    position:relative;
+    max-width:150px;
+    min-width:100px;
+    top:-10px;
+  }
+  .com.right {
+    background-color:#49afcd;
+  }
+  .triangle-right.right::after {
+    border-color: transparent #49afcd;
+    top:40%;
+  }
+  .triangle-right.left::after {
+    top:40%;
+  }
+
+  #ladrido {
+    clear:both;
+    background-color:black;
+    input {
+      height:30px;
+      width:95%;
+    }
+  }
+}
+body.landscape {
+  .com {
+    max-width:280px !important; 
+    min-width:200px !important;
+  }
+}
+
+
