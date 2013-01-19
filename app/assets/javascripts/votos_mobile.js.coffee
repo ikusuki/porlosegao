@@ -12,16 +12,17 @@ $ ->
       $('#logindrop a').click()
       return false
     else
+      $n = $('.n', $cromoplus.parent())
+      votos = parseInt($n.html())
       if $cromoplus.hasClass('clicked')
         $cromoplus.data('restando', true)
+        $n.html(zeroPad(votos--,3))
         $cromoplus.removeClass('clicked')
       else
+        $n.html(zeroPad(votos++,3))
         $cromoplus.data('sumando', true)
-        $('img', $cromoplus).fadeOut "fast", ->
-          $(this).attr('src', '/assets/gustico.gif').css(
-              'top': '5px'
-              'opacity': '1'
-              ).fadeIn 'fast'
+        $('img', $cromoplus).hide().css('top', '5px').attr('src', '/assets/gustico.gif').fadeIn "slow"
+
       $.ajax
         type: "POST"
         beforeSend: (jqXHR, settings) ->
@@ -35,7 +36,7 @@ $ ->
                 $cromoplus = $(this).parent().prev()
                 if $cromoplus.data('restando')
                   $cromoplus.removeClass('clicked')
-                  $cromoplus.find('img').attr('src', '/assets/votar.gif')
+                  $cromoplus.find('img').hide().css('top', '0px').attr('src', '/assets/votar.gif').show()
                   $cromoplus.data('restando', false)
                 else if $cromoplus.data('sumando')
                   setTimeout (->
@@ -46,10 +47,11 @@ $ ->
         true
     true
 
-window.gustico = ($cromoplus) ->
-  $cromoplus.addClass('clicked')
-  $cromoplus.find('img').fadeOut 'fast',->
-    $(this).attr('src', '/assets/votar.gif')
-    $(this).fadeIn 'slow'
+  zeroPad = (num, places) ->
+    zero = places - num.toString().length + 1
+    Array(+(zero > 0 && zero)).join("0") + num;
 
+window.gustico = ($cromoplus) ->
+  $cromoplus.find('img').hide().css('top','0px').attr('src', '/assets/votar.gif').fadeIn "fast", ->
+    $cromoplus.addClass('clicked')
   true
