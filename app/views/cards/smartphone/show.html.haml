@@ -1,6 +1,6 @@
 - content_for :head do
   = stylesheet_link_tag "bubbles"
-  = javascript_include_tag "votos_mobile", "comment_mobile"
+  = javascript_include_tag "votos_mobile", "comment_mobile", "create_smartphone"
   %meta{:property=>"og:title", :content => "#{@card.picture.description.blank? ? "Cromico!" : @card.picture.description}"}
   %meta{:property=>"og:type", :content => "article"}
   %meta{:property=>"og:image", :content => "#{@card.picture.url}"}
@@ -10,6 +10,9 @@
 
 #cromo-container{:data => {:id => @card.id}}
   = render '/cards/smartphone/cromo', :card => @card, :single => true
+
+  %button#crearCromo.btn.btn-info.btn-large
+    Crear cromo con esta imagen
 #comments
   %h2 Comentarios 
   - if @comments.size == 0
