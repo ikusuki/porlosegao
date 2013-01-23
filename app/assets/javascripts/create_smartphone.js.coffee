@@ -18,9 +18,6 @@ $ ->
       $('#comentario').show()
       $('#header').show()
   false
-  $('#cromoText').blur ->
-    $('#crearCromo').click()
-    true
 
   $('#daleCera').click ->
     lines = $('#cromoText').val().split("\n")
