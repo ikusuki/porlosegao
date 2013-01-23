@@ -29,8 +29,12 @@ $ ->
       number_of_lines++ if lines[i].length>120
       i++
     number_of_lines = 1 if number_of_lines == 0
+    alert ("lines:"  + number_of_lines)
     commentSpace = 130
     commentSpace +=  (number_of_lines * 25) if number_of_lines>1
+    alert ("comment space: " + commentSpace)
+    alert ("picture height: " + $('#picture_img').height())
+
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
     $('#cromoForm form').submit()
