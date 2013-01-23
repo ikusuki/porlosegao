@@ -11,7 +11,7 @@
       imagen
   .inside
     %a{:href => card_path(card)}
-      = image_tag card.picture.url
+      = image_tag card.picture.url, {:id => "picture_img"}
       .comment.noSelect{:id => ("comentario" if defined?(single))}
         =simple_format(card.comment)
     - if defined?(single)
