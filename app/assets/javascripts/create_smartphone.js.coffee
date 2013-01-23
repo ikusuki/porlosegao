@@ -5,6 +5,7 @@ $ ->
       $('#logindrop a').click()
       return false
     else
+      $('#header').hide()
       $(this).hide()
       $('#comentario').hide()
       $('#cromoForm').show()
@@ -15,7 +16,11 @@ $ ->
       $('#stats, #pictureTitulaco').slideDown "fast"
       $('#crearCromo').show()
       $('#comentario').show()
+      $('#header').show()
   false
+  $('#cromoText').blur ->
+    $('#crearCromo').click()
+    true
 
   $('#daleCera').click ->
     lines = $('#cromoText').val().split("\n")
