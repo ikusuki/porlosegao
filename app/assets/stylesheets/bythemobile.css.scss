@@ -254,7 +254,7 @@ ul.social {
     clear:both;
     display:table-cell;
     .username {
-      font-size:12px;
+      font-size:14px;
       display:inline;
       font-weight:bold;
     }
@@ -262,7 +262,7 @@ ul.social {
   .com {
     display:inline-block;
     position:relative;
-    max-width:150px;
+    max-width:140px;
     min-width:100px;
     top:-10px;
   }
@@ -290,6 +290,9 @@ body.landscape {
   .com {
     max-width:280px !important; 
     min-width:200px !important;
+  }
+  .username.txiki {
+    font-size:12px;
   }
 }
 #crearCromo {
