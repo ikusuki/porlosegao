@@ -11,9 +11,20 @@
       imagen
   .inside
     %a{:href => card_path(card)}
-      = image_tag card.picture.url
-      .comment.noSelect
+      = image_tag card.picture.url, {:id => "picture_img"}
+      .comment.noSelect{:id => ("comentario" if defined?(single))}
         =simple_format(card.comment)
+    - if defined?(single)
+      #cromoForm
+        = form_tag(create_cromo_cards_path, :method => "POST") do
+          %input{:type =>"hidden", :name => :picture_id, :value => card.picture_id}
+          %input#cardHeight{:type =>"hidden", :name => :card_height}
+          %textarea#cromoText{:name => "cromoText"}
+          %a#daleCera.btn.btn-info{:href => "#"}
+            Dale cera
+          %a#cancel.btn.btn-danger{:href => "#"}
+            Déjalo pa luego
+
   .votosContainer
     .votos
       %a.cromoplus{:data => {:cromo_id => card.id}, :class => vote_class(card.id)}

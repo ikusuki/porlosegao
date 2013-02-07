@@ -254,7 +254,7 @@ ul.social {
     clear:both;
     display:table-cell;
     .username {
-      font-size:14px;
+      font-size:12px;
       display:inline;
       font-weight:bold;
     }
@@ -262,7 +262,7 @@ ul.social {
   .com {
     display:inline-block;
     position:relative;
-    max-width:150px;
+    max-width:140px;
     min-width:100px;
     top:-10px;
   }
@@ -291,6 +291,30 @@ body.landscape {
     max-width:280px !important; 
     min-width:200px !important;
   }
+  .username.txiki {
+    font-size:12px;
+  }
 }
-
+#crearCromo {
+  text-align:center;
+  margin:auto;
+  display:block;
+}
+#cromoForm {
+  display:none;
+  textarea {
+    display:block;
+    width:90%;
+    font-size:30px;
+    line-height:30px;
+    font-family:'Mouse Memoirs', Arial, serif; 
+    font-weight: 400; 
+    resize:none;
+    height:100px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+  }
+  .btn {    margin:20px;  color:white; }
+}
 
