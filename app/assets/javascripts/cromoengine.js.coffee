@@ -39,6 +39,11 @@ $ ->
   ).live 'mouseout', ->
     $(this).removeClass('hover')
 
+# window.checkScrollPosition = () ->
+#   window.moreCards() if (!window.ajax_cards && ($(window).scrollTop() + $(window).height() > $(document).height() - 100))
+#   true
+
+
 
 # $ ->
 #   window.handler = null
