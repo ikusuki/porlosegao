@@ -93,7 +93,9 @@ $.fn.toscamark = function(options) {
       $('p', $(this).next()).delay(1000).animate({
         "top": "0px",
         "height": "185px"
-      }, 100);
+      }, 100, function() {
+        $(this).css("height", "auto");
+      });
     });
    }
 };
