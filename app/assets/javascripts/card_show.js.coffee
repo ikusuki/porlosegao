@@ -9,7 +9,10 @@ $ ->
     $("p", $(this).next()).delay(1000).animate
       top: "0px"
       height: "150px"
-    , 100
+    , 100, ->
+      $(this).css
+        height: "auto"
+
   
   $('#padentrer').click ->
     $('#logindrop a').click()
