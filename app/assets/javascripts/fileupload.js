@@ -22,7 +22,7 @@ $(function() {
         action: 'save'
       }
       ],
-      dataType: 'xml', // This is really important as s3 gives us back the url of the file in a XML document
+      dataType: 'xml', // This is really important as s3 gives us back the url of the file in a  XML document
       add: function (event, data) {
         window.showMessage('warning');
         $(this).fileupload('process', data).done(function () {
