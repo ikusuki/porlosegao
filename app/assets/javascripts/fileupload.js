@@ -16,7 +16,7 @@ $(function() {
       {
         action: 'resize',
         maxWidth: 500,
-        maxHeight: 3000
+        maxHeight: 8000
       },
       {
         action: 'save'
