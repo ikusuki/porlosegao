@@ -11,6 +11,7 @@ module CardsHelper
     link = "https://twitter.com/intent/tweet?text=Ojo al cromo!! "
     link += "「#{card.picture.description}」" unless card.picture.description.blank?
     link += card_url(card)
+    link += " by @bythesegao"
   end
 
   def facebook_link(card)
