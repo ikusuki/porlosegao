@@ -15,3 +15,5 @@
 - Imágenes:
 - Añadir filtros?
 - Añadir tonterías fácil? sombreros, bigotes, bocadillos...
+
+- Meter esto para hacer horizontal slides con la misma imagen: http://tympanus.net/Development/FullscreenGridPortfolioTemplate/
