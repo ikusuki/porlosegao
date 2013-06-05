@@ -8,10 +8,10 @@ module CardsHelper
   end
 
   def twitter_link(card)
-    link = "https://twitter.com/intent/tweet?text=Ojo al cromo!! "
-    link += "「#{card.picture.description}」" unless card.picture.description.blank?
+    link = "https://twitter.com/intent/tweet?text=Ojete al cromo!! "
+    link += "「#{card.description}」" unless card.picture.description.blank?
     link += card_url(card)
-    link += " by @bythesegao"
+    link += " by @bythesegao #porlosegao"
   end
 
   def facebook_link(card)
