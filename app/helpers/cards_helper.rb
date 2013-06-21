@@ -9,7 +9,7 @@ module CardsHelper
 
   def twitter_link(card)
     link = "https://twitter.com/intent/tweet?text=Ojete al cromo!! "
-    link += "「#{card.description}」" unless card.picture.description.blank?
+    link += "「#{card.picture.description}」" unless card.picture.description.blank?
     link += card_url(card)
     link += " by @bythesegao #porlosegao"
   end

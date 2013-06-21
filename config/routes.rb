@@ -13,6 +13,9 @@ Porlosegao::Application.routes.draw do
     :action => "index"
 
   resources :cards, :path => :cromos do
+    collection do
+      get :index_ajax
+    end
     resources :comments, :only => [:create]
     collection do
       post :create_cromo

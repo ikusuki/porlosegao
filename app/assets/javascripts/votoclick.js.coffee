@@ -1,5 +1,7 @@
 $ ->
-  $('.cromoplus').click ->
+
+  $('.cromoplus').live 'click', ->
+    console.log($(this).data())
     if ($('#upload').length == 0)
       $('#logindrop h4').html("Vamos pa dentro primero!")
       $('#logindrop a').click()
@@ -20,7 +22,7 @@ $ ->
         beforeSend: (jqXHR, settings) ->
           jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
         url: "/users/vote_card"
-        data: {"card_id": $(this).data('cromo_id')}
+        data: {"card_id": $(this).data('cromoId')}
         success: (data) ->
           if data["votos"]!=undefined
             $('#n'+ data['id']).fadeOut 'fast', ->
