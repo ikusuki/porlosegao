@@ -1,9 +1,9 @@
 $ ->
   $('.cromo.mobile').dblclick ->
-    votar($(this).data('cromo_id'), $('.cromoplus', $(this)))
+    votar($(this).data('cromoId'), $('.cromoplus', $(this)))
     false
   $('.cromoplus').click ->
-    votar($(this).data('cromo_id'), $(this))
+    votar($(this).data('cromoId'), $(this))
     false
 
   votar = (cromoid, $cromoplus) ->
@@ -28,7 +28,7 @@ $ ->
         beforeSend: (jqXHR, settings) ->
           jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
         url: "/users/vote_card"
-        data: {"card_id": $cromoplus.data('cromo_id')}
+        data: {"card_id": cromoid}
         success: (data) ->
           if data["votos"]!=undefined
             $('#n'+ data['id']).fadeOut 'fast', ->
