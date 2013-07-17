@@ -50,7 +50,7 @@ $ ->
       $('#spinner').show()  
       $.ajax
         type: "GET"
-        url: "/cromos/index_ajax?page=" + window.cards_page + "&criteria=" + window.criteria
+        url: "/cromos/index_ajax?page=" + window.cards_page + "&criteria=" + window.criteria + "&tag=" + window.tag
         success: (cards_html) ->
           if cards_html
             window.$cromos.append(cards_html) 

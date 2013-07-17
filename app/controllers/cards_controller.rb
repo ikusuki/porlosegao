@@ -22,7 +22,7 @@ class CardsController < ApplicationController
   end
 
   def index_ajax
-    @cards = get_cards(params[:criteria],params[:page])
+    @cards = get_cards(params[:criteria],params[:page], params[:tag])
     render :index_ajax, :layout => false
   end
 
@@ -93,7 +93,7 @@ class CardsController < ApplicationController
       end
       if tag.blank?
         if !joins.blank?
-          @cards = Card.select(select).joins(joins).order(oder).limit(50).offset(offset).all.uniq
+          @cards = Card.select(select).joins(joins).order(order).limit(50).offset(offset).all.uniq
         else
           @cards = Card.select(select).limit(50).order(order).offset(offset).all.uniq
         end
@@ -104,7 +104,6 @@ class CardsController < ApplicationController
           @cards = Card.tagged_with(tag).select(select).limit(50).order(order).offset(offset).all.uniq
         end      
       end
-
     end
   end
 end

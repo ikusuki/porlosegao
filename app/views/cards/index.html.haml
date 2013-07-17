@@ -1,6 +1,7 @@
 - content_for :head do
   :javascript
     window.criteria = "#{@criteria}";
+    window.tag = "#{@tag}";
   = javascript_include_tag "toscawookmark", "cromoengine", "votoclick"
 
 .top-buttons
