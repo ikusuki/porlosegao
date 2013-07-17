@@ -14,7 +14,7 @@ class CardsController < ApplicationController
     params[:page] = 1 if params[:page].blank?
     @criteria = params[:criteria]
     @tag = params[:tag]
-    @card = get_cards(params[:criteria], params[:page], params[:tag])
+    @cards = get_cards(params[:criteria], params[:page], params[:tag])
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
