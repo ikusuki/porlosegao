@@ -12,9 +12,10 @@ class CardsController < ApplicationController
   def index
     params[:criteria] = "" if params[:criteria].blank?
     params[:page] = 1 if params[:page].blank?
+    params[:tag] = "" if params[:tag].blank?
     @criteria = params[:criteria]
     @tag = params[:tag]
-    @cards = get_cards(params[:criteria], params[:page], params[:tag])
+    get_cards(params[:criteria], params[:tag],params[:page])
     if !current_user.blank?
       @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
     end
@@ -22,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def index_ajax
-    @cards = get_cards(params[:criteria],params[:page], params[:tag])
+    get_cards(params[:criteria],params[:tag],params[:page])
     render :index_ajax, :layout => false
   end
 
@@ -61,7 +62,7 @@ class CardsController < ApplicationController
   end
 
   private
-  def get_cards(criteria, page = 1, tag)
+  def get_cards(criteria, tag, page = 1)
     offset = (page.to_i - 1) * 50
     if !Rails.env.production?
       if tag.blank?
