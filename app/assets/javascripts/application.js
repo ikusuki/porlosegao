@@ -15,4 +15,5 @@
 //= require jquery.validationEngine-es
 //= require jquery.validationEngine
 //= require jquery.imgr.min
+//= require bootstrap-tags
 //= require bythesegao

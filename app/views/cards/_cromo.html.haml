@@ -28,6 +28,11 @@
         =image_tag "comment.png"
         .cNumber
           =card.comments_count.to_s.rjust(2,'0')
+  %ul.tags        
+    - card.tags.each do |tag|
+      %li
+        .btn-success.tag
+          =link_to tag.name, cards_path(:tag => tag.name)
   %ul.social
     %li
       %a{:href=> twitter_link(card), :target => "_blank"}

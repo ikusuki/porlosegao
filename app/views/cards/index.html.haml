@@ -3,13 +3,17 @@
     window.criteria = "#{@criteria}";
   = javascript_include_tag "toscawookmark", "cromoengine", "votoclick"
 
-
 .top-buttons
-  %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path) || !params[:criteria].blank?)}
-    +Votados
-  %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
-    +Nuevos
-- if current_page?(cards_path) || !params[:criteria].blank?
+  - if !@tag.blank?
+    #tageados="Cromos tageados con '#{@tag}'"
+    %a#verTodos.btn.btn-info{:href => nuevos_cards_path}
+      Ver todos
+  - else
+    %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path) || !params[:criteria].blank?)}
+      +Votados
+    %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
+      +Nuevos
+- if @tag.blank? && current_page?(cards_path) || !params[:criteria].blank?
   .ordenAquiCopon
     %a.btn{:href => "/cromos/ninki/hoy", :class => ("btn-inverse" if params[:criteria]=="hoy")}
       Hoy
@@ -21,7 +25,6 @@
       Este mes
     %a.btn{:href => "/cromos/ninki/dePaSiempre", :class => ("btn-inverse" if params[:criteria]=="dePaSiempre")}
       Desde siempre
-
 
 #cromos
   - @cards.each do |card|

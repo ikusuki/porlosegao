@@ -10,7 +10,7 @@ $ ->
   window.cards_page = 2
 
   $('.cromo').live('mouseover', ->
-    $('ul.social', $(this)).show()
+    $('ul.social, ul.tags', $(this)).show()
     $('.credits', $(this)).stop().show().animate
       height: '15px'
       top: '-20px'
@@ -19,7 +19,7 @@ $ ->
       left: '0px'
     , 100
   ).live 'mouseout', ->
-    $('ul.social', $(this)).hide()
+    $('ul.social, ul.tags', $(this)).hide()
     $credits = $('.credits', $(this))
     unless $credits.hasClass('hover')
       $credits.stop().animate

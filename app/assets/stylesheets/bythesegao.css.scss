@@ -367,7 +367,25 @@
       height:150px;
       margin-left:auto;
       margin-right:auto;
-      margin-bottom:50px;
+      margin-bottom:0px;
+    }
+    .tags-input {
+      height: 25px !important;
+
+    }
+    #tag_list {
+      left: 25px;
+      margin-bottom: 50px;
+      .tag{
+        border-bottom: none;
+        padding: 2px 4px 3px;
+        margin-top: 12px;
+        margin-left: 2px;
+        .icon-white {
+          background-image: url("glyphicons-halflings-white.png");
+        }
+
+      }
     }
     .btn {
       margin:20px;
@@ -487,4 +505,37 @@ ul.social {
     float:left;
     padding:5px;
   }
+}
+ul.tags {
+  display:none;
+  list-style-type:none;
+  position:absolute;
+  left:0px;
+  bottom: 10px;
+  li {
+    float:left;
+    padding:5px;
+    .tag {
+      border-radius:5px;
+      text-align:center;
+      min-width:50px;
+      border-bottom: none;
+      font-family: 'Special Elite';
+    }
+    a {
+      opacity: 1;
+      color:white;
+      text-decoration:none;
+    }
+  }
+}
+#tageados {
+  display:inline-block;
+  margin-top:5px;
+  font-family: 'Special Elite';
+  font-size: 36px;
+}
+#verTodos {
+  display: inline-block;
+  top: -5px;
 }

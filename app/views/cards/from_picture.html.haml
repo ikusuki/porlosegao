@@ -31,7 +31,10 @@
     = form_tag(create_cromo_cards_path, :method => "POST") do
       %input{:type =>"hidden", :name => :picture_id, :value => @picture.id}
       %input#cardHeight{:type =>"hidden", :name => :card_height}
+      %input#tags{:type => "hidden", :name => :tags}
       %textarea#cromoText{:name => "cromoText"}
+      #tag_list.tag-list{:style=>"width: 440px"}
+        .tags
       %a#daleCera.btn.btn-info{:href => "#"}
         Dale cera
       %a#cancel.btn.btn-danger{:href => "#"}

@@ -11,6 +11,7 @@
  *= require_self
  *= require bythesegao
  *= require bootstrap
+ *= require bootstrap-tags
  *= require botoncicos
  *= require validationEngine.jquery
  */

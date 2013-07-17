@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 group :development do
   gem 'debugger'
-  gem 'awesome_print'
   gem 'sqlite3'
   gem 'nokogiri'
 
@@ -27,6 +26,8 @@ end
 gem 'haml'
 gem 'devise'
 gem 'newrelic_rpm'
+gem 'awesome_print'
+gem 'acts-as-taggable-on'
 
 group :production do
   gem 'pg'

@@ -9,6 +9,15 @@ $ ->
     $('#picture_upload').click()
     true
 
+  window.cromo_tags = $('#tag_list').tags
+    suggestions: ["PP", "Bárcenas", "Gatetes"],
+    promptText: "Tagea este cromico si te sale de un webeter..."
+    tagClass: 'btn-success'
+
+
+  $('#cromoForm form input[type=text]').keypress (e) ->
+    false if e.keyCode is 13
+
   window.myMessages = ['info','warning','error','success']
   # Initially, hide them all
   hideAllMessages()
@@ -41,14 +50,14 @@ $ ->
     false
   $('#crearCromo').click ->
     $(this).hide()
-    $('#cromoText').width($('#picture_img').width()+40)
+    $('#cromoText, .tags-input').width($('#picture_img').width()+40)
     $('#stats, #pictureTitulaco').slideUp 'fast', ->
-      $('#cromoForm').slideDown 'fast', ->
+      $('#cromoForm').slideDown '100', ->
         $('#cromoText').focus()
     false
 
   $('#cancel').click ->
-    $('#cromoForm').slideUp "fast", ->
+    $('#cromoForm').slideUp "100", ->
       $('#stats, #pictureTitulaco').slideDown "fast"
       $('#crearCromo').show()
   false
@@ -68,6 +77,7 @@ $ ->
     console.log("lines:" + number_of_lines)
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
+    $('#cromoForm form #tags').val(window.cromo_tags.getTags())
     $('#cromoForm form').submit()
     true
 
