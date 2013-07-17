@@ -28,8 +28,8 @@
         =image_tag "comment.png"
         .cNumber
           =card.comments_count.to_s.rjust(2,'0')
-  %ul.tags        
-    - card.tags.each do |tag|
+  %ul.tags{:style => ("display:block" if defined?(single))}
+    - card.tags.limit(5).each do |tag|
       %li
         .btn-success.tag
           =link_to tag.name, cards_path(:tag => tag.name)
