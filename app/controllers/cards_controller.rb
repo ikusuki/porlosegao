@@ -88,7 +88,7 @@ class CardsController < ApplicationController
         order = "votos desc"
         # @cards = Card.find(:all, :order => "votos desc", :limit => 50, :offset => offset)
       else
-        select = "*"
+        select = "cards.*"
         order = "cards.created_at desc"
         #@cards = Card.find(:all, :order => "created_at desc", :limit => 50, :offset => offset)
       end
