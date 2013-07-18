@@ -5,6 +5,9 @@
         By The Segao<br/>
         %h6{:style=> "color:white"} is the way
       .nav-collapse
+        #osusume{:style => "color:white; position: absolute; left: 150px; top: -10px"}
+          = link_to cards_path(:tag => "Bárcenas") do
+            = image_tag "Barcenas.png"
         %ul.nav.pull-right
           %li.divider-vertical
           - if current_user
