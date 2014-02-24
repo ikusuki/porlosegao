@@ -13,7 +13,6 @@ $ ->
       $(this).css
         height: "auto"
 
-  
   $('#padentrer').click ->
     $('#logindrop a').click()
     return false
@@ -23,10 +22,10 @@ $ ->
       unless $(this).val()==''
         comentario = $(this).val()
         $(this).val("")
-        $.ajax 
+        $.ajax
           type: "POST"
           url: "/cromos/" + $('#cromo-container').data('id') + '/comments'
-          data: 
+          data:
             "comment" : comentario
           beforeSend: (jqXHR, settings) ->
             jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))

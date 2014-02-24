@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 class PicturesController < ApplicationController
-  
+
   def index
-    @pictures = Picture.find(:all, :order => "cards_count desc")    
+    @pictures = Picture.find(:all, :order => "cards_count desc")
   end
 
   def nuevas
@@ -30,5 +30,5 @@ class PicturesController < ApplicationController
     render :json => {:error => "gñ alert!! Algo se ha roto por lo visto!!"}, :success => false
   end
 
-  
+
 end

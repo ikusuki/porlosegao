@@ -1,11 +1,11 @@
 class CardsController < ApplicationController
 
+  before_filter :get_user_votes, :except => [:show, :create_cromo]
   def show
-    @card = Card.find(params[:id])
+    @card = Card.where(id: params[:id]).first
+    render 'index' and return if !@card
     @comments = Comment.find_all_by_card_id(@card.id)
-    if !current_user.blank?
-      @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id)
-    end
+    @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id) if !current_user.blank?
     render 'cards/smartphone/show' if @mobile
   end
 
@@ -16,9 +16,6 @@ class CardsController < ApplicationController
     @criteria = params[:criteria]
     @tag = params[:tag]
     get_cards(params[:criteria], params[:tag],params[:page])
-    if !current_user.blank?
-      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
-    end
     render 'cards/smartphone/index' if @mobile
   end
 
@@ -28,15 +25,7 @@ class CardsController < ApplicationController
   end
 
   def nuevos
-    if !Rails.env.production?
-      @cards = Card.find(:all, :order => "created_at desc", :limit => 5)
-    else
-      @cards = Card.find(:all, :order => "created_at desc", :limit => 50)
-    end
-    
-    if !current_user.blank?
-      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
-    end
+    @cards = Card.find(:all, :order => "created_at desc", :limit => 50)
     render 'cards/smartphone/index' and return if @mobile
     render 'index'
   end
@@ -44,11 +33,8 @@ class CardsController < ApplicationController
   def from_picture
     @picture = Picture.find(params[:id])
     @cards = Card.order("created_at desc").where(:picture_id => params[:id])
-    if !current_user.blank?
-      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id)
-    end
   end
-  
+
   def create_cromo
     #todo: error management
     picture_id = params[:picture_id]
@@ -62,15 +48,20 @@ class CardsController < ApplicationController
   end
 
   private
+  def get_user_votes
+    @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id) if !current_user.blank?
+  end
   def get_cards(criteria, tag, page = 1)
     offset = (page.to_i - 1) * 50
     if !Rails.env.production?
+      # MySQL Local
       if tag.blank?
         @cards = Card.all(:order => "votos desc", :limit => 5, :offset => (page.to_i-1) * 5)
       else
         @cards = Card.tagged_with(tag).order("votos desc").limit(5).offset((page.to_i-1) * 5)
       end
     else
+      # PostgreSQL Heroku
       select = "cards.*,coalesce(extract(YEAR FROM votes.created_at), null) hoy"
       joins=""
       order = "hoy, votos desc"
@@ -86,11 +77,9 @@ class CardsController < ApplicationController
       when "dePaSiempre"
         select = "*"
         order = "votos desc"
-        # @cards = Card.find(:all, :order => "votos desc", :limit => 50, :offset => offset)
       else
         select = "cards.*"
         order = "cards.created_at desc"
-        #@cards = Card.find(:all, :order => "created_at desc", :limit => 50, :offset => offset)
       end
       if tag.blank?
         if !joins.blank?
@@ -103,7 +92,7 @@ class CardsController < ApplicationController
           @cards = Card.tagged_with(tag).select(select).joins(joins).limit(50).order(order).offset(offset).all.uniq
         else
           @cards = Card.tagged_with(tag).select(select).limit(50).order(order).offset(offset).all.uniq
-        end      
+        end
       end
     end
   end

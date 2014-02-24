@@ -1,8 +1,4 @@
 $ ->
-  # $('#pictures .picture img, #cromos .inside img').imgr
-  #   size: "1px"
-  #   color: "white"
-  #   radius: "20px 20px 0px 0px"
   $('#signin_form, #login_form, #signin_big_form').validationEngine();
 
   $('#upload').click ->
@@ -38,7 +34,7 @@ $ ->
       type: "POST"
       beforeSend: (jqXHR, settings) ->
         jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-      data: 
+      data:
         "titulo" : $('#pictureTitle').val()
       success: (data) ->
         $('#user-form').fadeOut("fast")
@@ -74,7 +70,6 @@ $ ->
     number_of_lines = 1 if number_of_lines == 0
     commentSpace = 130
     commentSpace +=  (number_of_lines * 25) if number_of_lines>1
-    console.log("lines:" + number_of_lines)
 
     $('#cardHeight').val($('#picture_img').height() + commentSpace)
     $('#cromoForm form #tags').val(window.cromo_tags.getTags())

@@ -75,10 +75,10 @@ $(function() {
             jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
           },
           data: { url: $('#uploaded_file_path').val()},
-          success: function(data) { 
+          success: function(data) {
             window.location = "/cromosImagen/" + data.id;
           }})
-        
+
         $('.progress').fadeOut(3000, function() {
           $('.bar').css('width', 0)
         })

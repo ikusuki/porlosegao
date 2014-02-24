@@ -1,4 +1,4 @@
-$ -> 
+$ ->
   window.handler = null
   window.$cromos = $('#cromos')
   window.cromoptions =
@@ -43,17 +43,17 @@ $ ->
     window.moreCards() if (!window.ajax_cards && ($(window).scrollTop() + $(window).height() > $(document).height() - 100))
     true
 
- 
+
   window.moreCards = ->
     unless window.ajax_cards
-      window.ajax_cards = true  
-      $('#spinner').show()  
+      window.ajax_cards = true
+      $('#spinner').show()
       $.ajax
         type: "GET"
         url: "/cromos/index_ajax?page=" + window.cards_page + "&criteria=" + window.criteria + "&tag=" + window.tag
         success: (cards_html) ->
           if cards_html
-            window.$cromos.append(cards_html) 
+            window.$cromos.append(cards_html)
             window.ajaxPage = true
             window.handler = $('div.cromo.shown', window.$cromos)
             window.cards_page++ unless cards_html is ""
@@ -64,11 +64,11 @@ $ ->
           true
   true
 
-  
+
   $(window).scroll ->
     window.checkScrollPosition()
     true
-  
+
   $(window).resize ->
     window.resizing = true
     clearTimeout(window.resizeTimer) if (window.resizeTimer)
@@ -82,7 +82,7 @@ $ ->
     window.handler = $('div.cromo', window.$cromos)
     window.handler.toscamark(window.cromoptions)
     # $('#spinner').removeClass('resizing').hide()
-  true    
+  true
 
   window.adjustLoadDelay = () ->
     c = setTimeout('window.ajax_cards = false;  $("#spinner").hide();   window.checkScrollPosition();', 500)

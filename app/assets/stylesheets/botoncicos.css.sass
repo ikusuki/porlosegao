@@ -1,13 +1,13 @@
-.btn.btn-large.active 
+.btn.btn-large.active
   color: white
   background: black
   font-size: 28px
 
-.btn, .btn:hover 
+.btn, .btn:hover
   color: #88a5b1
   cursor: pointer
 
-.btn-primary, .btn-primary:hover, .btn-info, .btn-info:hover, .btn-success, .btn-success:hover, .btn-warning, .btn-warning:hover, .btn-danger, .btn-danger:hover, .btn-inverse, .btn-inverse:hover 
+.btn-primary, .btn-primary:hover, .btn-info, .btn-info:hover, .btn-success, .btn-success:hover, .btn-warning, .btn-warning:hover, .btn-danger, .btn-danger:hover, .btn-inverse, .btn-inverse:hover
   color: #fff
 
 @mixin button-background ($color1: #ffffff, $color2: #f8f8f8)
@@ -17,7 +17,7 @@
   background-image: -o-linear-gradient($color1, $color2)
   background-image: linear-gradient($color1, $color2)
 
-.btn 
+.btn
   font: 12px Helvetica
   padding: 8px 22px 6px
   margin: 0
@@ -29,61 +29,61 @@
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 25px -5px
   box-shadow: rgba(0, 0, 0, 0.2) 0 0 25px -5px
 
-.btn-large 
+.btn-large
   font-size: 18px
   padding: 12px 22px 10px
 
-.btn-small 
+.btn-small
   font-size: 11px
   padding: 8px 16px 6px
 
-.btn-mini 
+.btn-mini
   font-size: 9px
   padding: 7px 12px 5px
-  
-.btn:active 
+
+.btn:active
   position: relative
   top: 3px
   border: none
 
-.btn-primary 
+.btn-primary
   border-bottom: 3px #000609 solid
   @include button-background(#0079bb, #005888)
 
-.btn-primary:hover 
+.btn-primary:hover
   @include button-background(#009aee, #005888)
 
-.btn-info 
+.btn-info
   @include button-background(#71c1d8, #49afcd)
   border-bottom: 3px #206376 solid
 
-.btn-info:hover 
+.btn-info:hover
   @include button-background(#99d2e3, #49afcd)
 
-.btn-success 
+.btn-success
   @include button-background(#7ec77e, #5bb75b)
   border-bottom: 3px #2d662d solid
 
-.btn-success:hover 
+.btn-success:hover
   @include button-background(#7ec77e, #5bb75b)
 
-.btn-warning 
+.btn-warning
   @include button-background(#fbbc64, #faa732)
   border-bottom: 3px #a86404 solid
 
-.btn-warning:hover 
+.btn-warning:hover
   @include button-background(#fcd296, #faa732)
 
-.btn-danger 
+.btn-danger
   @include button-background(#e37873, #da4f49)
   border-bottom: 3px #88201c solid
 
-.btn-danger:hover 
+.btn-danger:hover
   @include button-background(#eba19e, #da4f49)
 
-.btn-inverse 
+.btn-inverse
   @include button-background(#505050, #363636)
   border-bottom: 3px black solid
 
-.btn-inverse:hover 
+.btn-inverse:hover
   @include button-background(#696969, #363636)

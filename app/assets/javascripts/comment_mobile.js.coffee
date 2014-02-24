@@ -8,18 +8,18 @@ $ ->
       unless $(this).val()==''
         comentario = $(this).val()
         $(this).val("")
-        $.ajax 
+        $.ajax
           type: "POST"
           url: "/cromos/" + $('#cromo-container').data('id') + '/comments'
-          data: 
+          data:
             "comment" : comentario
           beforeSend: (jqXHR, settings) ->
             jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
           success: (data) ->
             primero = $('#comments .porcomentar').length == 0
-            if primero 
+            if primero
               left = false
-            else            
+            else
               left = $('#comments .porcomentar:last').hasClass('left')
             if left
               div = "<div class='porcomentar right hide'><div class='user'><p class='com triangle-right right'>" + data.comment + "</p><div class='username'><a href='#'>" + data.username + "</a></div></div>"

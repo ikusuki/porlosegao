@@ -10,7 +10,7 @@
             %li{:style => "display:none"}
               %a#upload{:href => "#"}
                 Subir imagen
-            %li 
+            %li
               = link_to "Logout #{current_user.username}", destroy_user_session_path
           - unless current_user
             %li.dropdown
@@ -19,7 +19,7 @@
                 %strong.caret
               .dropdown-menu.wrapper{:style => "padding: 15px; padding-bottom:0px"}
                 %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
-                = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f| 
+                = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f|
                   = f.text_field :username, :placeholder => "Usernamer", :class=>"validate[required]", "data-prompt-position" => "topRight:-50,0"
                   = f.email_field :email, :placeholder => "Email", :class=>"validate[required,custom[email]]", "data-prompt-position" => "topLeft"
                   = f.password_field :password, :placeholder => "Contraseñer", :class => "validate[required,minSize[6]]", "data-prompt-position" => "topRight:-50,0"
@@ -42,4 +42,3 @@
                   %button#login.btn.btn-primary{:href => "#"}
                     Padentrer
 
-        

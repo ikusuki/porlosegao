@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user_id = current_user.id
     vote = Vote.where(:user_id => user_id, :card_id => card.id).first
     if vote.blank?
-      vote = Vote.create!(:user_id => user_id, :card_id => card.id)      
+      vote = Vote.create!(:user_id => user_id, :card_id => card.id)
       if card.votos.nil?
         card.votos=1
       else

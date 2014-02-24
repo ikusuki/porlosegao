@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # http_basic_authenticate_with :name => "bythesegao", :password => "istheway", :except => :keep_alive
   before_filter :is_mobile
   layout :which_layout
-  
+
   def is_mobile
     @mobile = detect_mobile_browser
   end
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    session[:just_login] = true 
+    session[:just_login] = true
     root_path
   end
 
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def detect_mobile_browser
     agent = request.headers["HTTP_USER_AGENT"].downcase
-  
+
     MOBILE_BROWSERS.each do |m|
       return true if agent.match(m)
     end

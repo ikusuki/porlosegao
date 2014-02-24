@@ -1,5 +1,6 @@
 $ ->
-  $('#crearCromo').click ->
+  $crearCromo = $('#crearCromo')
+  $crearCromo.click ->
     if ($('#upload').length == 0)
       $('#logindrop h4').html("Vamos pa dentro primero!")
       $('#logindrop a').click()
@@ -14,7 +15,7 @@ $ ->
   $('#cancel').click ->
     $('#cromoForm').slideUp "fast", ->
       $('#stats, #pictureTitulaco').slideDown "fast"
-      $('#crearCromo').show()
+      $crearCromo.show()
       $('#comentario').show()
       $('#header').show()
   false

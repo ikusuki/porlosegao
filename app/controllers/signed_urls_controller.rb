@@ -1,5 +1,5 @@
 class SignedUrlsController < ApplicationController
-  
+
   def index
     render json: {
           policy: s3_upload_policy_document,

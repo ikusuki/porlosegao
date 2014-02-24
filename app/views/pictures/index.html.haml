@@ -3,12 +3,12 @@
 
 .top-buttons
   %a.btn.btn-large{:href => pictures_path, :class => ("active" if current_page?(pictures_path))}
-    +Usadas 
+    +Usadas
   %a.btn.btn-large{:href => nuevas_pictures_path, :class => ("active" if current_page?(nuevas_pictures_path))}
     +Nuevas
 
 #pictures
   - @pictures.each do |picture|
     .picture
-      %a{:href => "/cromosImagen/#{picture.id}"} 
+      %a{:href => "/cromosImagen/#{picture.id}"}
         = image_tag picture.url

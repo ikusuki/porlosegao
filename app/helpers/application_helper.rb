@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 module ApplicationHelper
   def get_frase_chorra
-    frases_chorras = ["¡¡ qué marcha me llevas !!", 
-                      "Hay que ver, hay que ver", 
-                      "Pues se ha quedao buena tarde, si...", 
+    frases_chorras = ["¡¡ qué marcha me llevas !!",
+                      "Hay que ver, hay que ver",
+                      "Pues se ha quedao buena tarde, si...",
                       "Pasa y cierra ya, que se escapa el gatete!!",
                       "Por casualidad... ¿no tendreis séis dedos en vuestra mano derecha?",
                       "¿No serás franchute, tu? ¿no? quesquesé quesquesé",
@@ -18,9 +18,9 @@ module ApplicationHelper
   end
 
   def get_saludo username
-    saludos = ["¡¡ Hombre, #{username} !!", 
-              "Callarse, que ya está #{username} aquí!!!", 
-              "#{username} is in da house!!", 
+    saludos = ["¡¡ Hombre, #{username} !!",
+              "Callarse, que ya está #{username} aquí!!!",
+              "#{username} is in da house!!",
               "Muy buenas, #{username}",
               "Leroloerijiiiii #{username}",
               "Ala, ya ha llegao #{username}, ¡¡ya estamos todos!",
@@ -30,7 +30,7 @@ module ApplicationHelper
     saludos[rand(saludos.length)]
   end
 
-  def get_create_placeholder 
+  def get_create_placeholder
     placeholders = ["Un mono dando botes",
                     "Un gatete kawaii",
                     "Songoku cabreao",

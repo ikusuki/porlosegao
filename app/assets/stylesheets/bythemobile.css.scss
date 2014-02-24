@@ -14,7 +14,7 @@ body {
   button { border-radius: 5px; }
   input {      margin-bottom:15px;    }
   .daleaqui {
-    top:10px; 
+    top:10px;
     display:inline;
     position:relative;
     }
@@ -141,7 +141,7 @@ body {
       max-width:85%;
       border:1px double gray;
       -webkit-transition: opacity 0.3s;
- 
+
     }
     .comment {
       width:95%;
@@ -154,7 +154,7 @@ body {
         margin-top:20px;
         font-size:30px;
         line-height:30px;
-        font-family:'Mouse Memoirs', Arial, serif; 
+        font-family:'Mouse Memoirs', Arial, serif;
       }
     }
   }
@@ -178,7 +178,7 @@ body {
   .votosContainer {
     float:right;
     position:absolute;
-    bottom:-55px;  
+    bottom:-55px;
     height:50px;
     width:100px;
     left:20px;
@@ -288,7 +288,7 @@ ul.social {
 }
 body.landscape {
   .com {
-    max-width:280px !important; 
+    max-width:280px !important;
     min-width:200px !important;
   }
   .username.txiki {
@@ -307,8 +307,8 @@ body.landscape {
     width:90%;
     font-size:30px;
     line-height:30px;
-    font-family:'Mouse Memoirs', Arial, serif; 
-    font-weight: 400; 
+    font-family:'Mouse Memoirs', Arial, serif;
+    font-weight: 400;
     resize:none;
     height:100px;
     margin-left:auto;
