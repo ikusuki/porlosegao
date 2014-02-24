@@ -1,17 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'debugger'
+  gem 'debugger',   '~> 1.6.5'
   gem 'sqlite3'
   gem 'nokogiri'
-
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 
@@ -28,7 +27,8 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'awesome_print'
 gem 'acts-as-taggable-on'
+gem 'capistrano'
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
 end
