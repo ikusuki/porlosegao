@@ -1,13 +1,13 @@
 #header.navbar.navbar-fixed-top
   .navbar-inner
     .container.extended
-      %a.brand{:href => "/"}
+      %a.brand.animated.lightSpeedIn{:href => "/"}
         By The Segao<br/>
         %h6{:style=> "color:white"} is the way
       .nav-collapse
         #osusume{:style => "color:white; position: absolute; left: 150px; top: -10px"}
           = link_to cards_path(:tag => "Bárcenas") do
-            = image_tag "Barcenas.png"
+            = image_tag "Barcenas.png", :class => "animated bounceInUp", :id => "barcenas"
         %ul.nav.pull-right
           %li.divider-vertical
           - if current_user

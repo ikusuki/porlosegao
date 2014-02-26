@@ -10,9 +10,9 @@
     %a#verTodos.btn.btn-info{:href => nuevos_cards_path}
       Ver todos
   - else
-    %a.btn.btn-large{:href => cards_path, :class => ("active" if current_page?(cards_path) || !params[:criteria].blank?)}
+    %a#votados.btn.btn-large.animated{:href => cards_path, :class => ("active" if current_page?(cards_path) || !params[:criteria].blank?)}
       +Votados
-    %a.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
+    %a#nuevos.animated.btn.btn-large{:href => nuevos_cards_path, :class => ("active" if current_page?(nuevos_cards_path)  || current_page?(root_path))}
       +Nuevos
 - if @tag.blank? && current_page?(cards_path) || !params[:criteria].blank?
   .ordenAquiCopon

@@ -1,4 +1,43 @@
 $ ->
+  button_items = [
+    "pulse"
+    "flash"
+    "bounce"
+    "rubberBand"
+    "shake"
+    "swing"
+    "tada"
+    "wobble"
+  ]
+  items = [
+    "flip"
+  ]
+
+  barcenas_timeout = null
+  getRandom = (type)->
+    anims = (if type is "buttons" then button_items else items)
+    anims[Math.floor(Math.random() * anims.length)]
+
+  setTimeout (->
+    $('#barcenas').removeClass('bounceInUp')
+  ), 3000
+
+  $('#barcenas').mouseenter(->
+    clearTimeout(barcenas_timeout)
+    barcenas_timeout = null
+    item = getRandom()
+    $(this).addClass(item).data('anim', item)
+  ).mouseleave ->
+    barcenas_timeout = setTimeout (=>
+      $(this).removeClass($(this).data('anim')).data('anim', '')
+      ), 1000
+
+  $('#votados, #nuevos').mouseenter(->
+    item = getRandom("buttons")
+    $(this).addClass(item).data('anim', item)
+  ).mouseleave ->
+    $(this).removeClass($(this).data('anim')).data('anim', '')
+
   $('#signin_form, #login_form, #signin_big_form').validationEngine();
 
   $('#upload').click ->

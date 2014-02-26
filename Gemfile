@@ -30,5 +30,5 @@ gem 'acts-as-taggable-on'
 gem 'capistrano'
 
 group :production do
-  # gem 'pg'
+  gem 'pg'
 end
