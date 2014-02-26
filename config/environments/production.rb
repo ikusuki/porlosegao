@@ -16,7 +16,7 @@ Porlosegao::Application.configure do
                                                           bythesegao.css
                                                           cards.css
                                                           easing.js
-                                                          query.ui.widget.js
+                                                          jsquery.ui.widget.js
                                                           jquery.masonry.js
                                                           jquery.fileupload.js
                                                           load-image.min.js
