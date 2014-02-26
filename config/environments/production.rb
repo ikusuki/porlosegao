@@ -18,6 +18,7 @@ Porlosegao::Application.configure do
                                                           easing.js
                                                           jquery.ui.widget.js
                                                           jquery.masonry.js
+                                                          picturengine.js
                                                           jquery.fileupload.js
                                                           load-image.min.js
                                                           mobile.js
