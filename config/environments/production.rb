@@ -20,6 +20,7 @@ Porlosegao::Application.configure do
                                                           jquery.masonry.js
                                                           jquery.fileupload.js
                                                           load-image.min.js
+                                                          mobile.js
                                                           canvas-to-blob.min.js
                                                           jquery.fileupload-fp.js
                                                           fileupload.js
