@@ -53,7 +53,7 @@ module Porlosegao
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += ["jquery.ui.widget", "jquery.fileupload", "load-image.min.js", "canvas-to-blob.min.js", "jquery.fileupload-fp.js", "fileupload"]
+    config.assets.precompile += ["mobile.css jquery.ui.widget", "jquery.fileupload", "load-image.min.js", "canvas-to-blob.min.js", "jquery.fileupload-fp.js", "fileupload"]
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
