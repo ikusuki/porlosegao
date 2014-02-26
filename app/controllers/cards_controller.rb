@@ -49,7 +49,9 @@ class CardsController < ApplicationController
 
   private
   def get_user_votes
-    @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id) if !current_user.blank?
+    if current_user
+      @votes = Vote.where(:user_id => current_user.id, :card_id => @cards.collect(&:id)).pluck(:card_id) rescue nil
+    end
   end
   def get_cards(criteria, tag, page = 1)
     offset = (page.to_i - 1) * 50
