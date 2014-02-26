@@ -19,8 +19,12 @@ $ ->
     anims[Math.floor(Math.random() * anims.length)]
 
   setTimeout (->
-    $('#barcenas').removeClass('bounceInUp')
+    $('#barcenas').addClass('bounceInUp').show()
   ), 1000
+
+  setTimeout (->
+    $('#barcenas').removeClass('bounceInUp')
+  ), 3000
 
   setTimeout (->
     $('#titulaco').addClass('rollIn').show()
