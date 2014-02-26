@@ -53,8 +53,6 @@ module Porlosegao
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += ["toscawookmark.js", "cromoengine.js", "votoclick.js", "votos_mobile.js", "comment_mobile.js", "create_smartphone.js", "card_show.js", "mobile.css", "jquery.ui.widget.js", "jquery.masonry.js", "picturengine.js", "jquery.fileupload.js", "load-image.min.js", "canvas-to-blob.min.js", "jquery.fileupload-fp.js", "fileupload.js"]
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

@@ -1,11 +1,30 @@
 Porlosegao::Application.configure do
 
-  ENV['AWS_ACCESS_KEY_ID']= 'AKIAIEEOYYBM3CORD5BQ'
-  ENV['AWS_SECRET_ACCESS_KEY']= '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'
-  ENV['S3_BUCKET']= 'bythesegao'
-
-
-  config.assets.precompile += %w( create_smartphone.js bubbles.css votoclick.js bythemobile.js jquery.doubletap.js jquery.imgr.min toscawookmark.js cards.js votos_mobile.js cromoengine.js bythesegao.css cards.css easing.js bootstrap.min.js bootstrap.css  )
+  config.assets.precompile += %w( create_smartphone.js
+                                                          bubbles.css
+                                                          mobile.css
+                                                          votoclick.js
+                                                          bythemobile.js
+                                                          comment_mobile.js
+                                                          jquery.doubletap.js
+                                                          jquery.imgr.min
+                                                          toscawookmark.js
+                                                          cards.js
+                                                          card_show.js
+                                                          votos_mobile.js
+                                                          cromoengine.js
+                                                          bythesegao.css
+                                                          cards.css
+                                                          easing.js
+                                                          query.ui.widget.js
+                                                          jquery.masonry.js
+                                                          jquery.fileupload.js
+                                                          load-image.min.js
+                                                          canvas-to-blob.min.js
+                                                          jquery.fileupload-fp.js
+                                                          fileupload.js
+                                                          bootstrap.min.js
+                                                          bootstrap.css  )
 
 
   # Settings specified here will take precedence over those in config/application.rb
