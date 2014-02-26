@@ -1,4 +1,4 @@
-.cromo{:style => "height:#{card.height}px; display:none", :class => ("shown" if defined?(new))}
+.cromo{:style => "height:#{card.height}px; display:none", :class => ("shown" if defined?(new)), :id => "cromo#{card.id}"}
   .credits
     - if card.user.id == card.picture.user.id
       %a{:href => "#"}="#{card.user.username}'s"
@@ -18,7 +18,7 @@
         .n{:id => "n#{card.id}"}= card.votos.blank? ? "000" : card.votos.to_s.rjust(3,'0')
         = image_tag "icon_up.gif"
   .inside
-    %a{:href => ((!defined?(single) || params[:action]=="from_picture")) ? card_path(card.id) : "/cromosImagen/#{card.picture_id}"}
+    %a.cromo_img{:href => ((!defined?(single) || params[:action]=="from_picture")) ? card_path(card.id) : "/cromosImagen/#{card.picture_id}"}
       = image_tag card.picture.url
       .comment
         =simple_format(card.comment)

@@ -20,7 +20,15 @@ $ ->
 
   setTimeout (->
     $('#barcenas').removeClass('bounceInUp')
-  ), 3000
+  ), 1000
+
+  setTimeout (->
+    $('#titulaco').addClass('rollIn').show()
+    ), 2000
+
+  setTimeout (->
+    $('#menuright li, #cromosimagenes').addClass('animated lightSpeedIn').show()
+    ), 3000
 
   $('#barcenas').mouseenter(->
     clearTimeout(barcenas_timeout)

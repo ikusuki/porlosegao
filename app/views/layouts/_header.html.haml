@@ -1,20 +1,20 @@
 #header.navbar.navbar-fixed-top
   .navbar-inner
     .container.extended
-      %a.brand.animated.lightSpeedIn{:href => "/"}
+      %a#titulaco.brand.animated.hide{:href => "/"}
         By The Segao<br/>
         %h6{:style=> "color:white"} is the way
       .nav-collapse
         #osusume{:style => "color:white; position: absolute; left: 150px; top: -10px"}
           = link_to cards_path(:tag => "Bárcenas") do
             = image_tag "Barcenas.png", :class => "animated bounceInUp", :id => "barcenas"
-        %ul.nav.pull-right
+        %ul.nav.pull-right#menuright
           %li.divider-vertical
           - if current_user
-            %li
+            %li{:style => "display: none"}
               %a#upload{:href => "#"}
                 Subir imagen
-            %li
+            %li{:style => "display: none"}
               = link_to "Logout #{current_user.username}", destroy_user_session_path
           - unless current_user
             %li.dropdown
@@ -45,7 +45,7 @@
                     = image_tag "vainas.gif"
                   %button#login.btn.btn-primary{:href => "#"}
                     Padentrer
-        %ul.nav
+        %ul.nav#cromosimagenes{:style => "display: none"}
           %li{:class => ("active" if params[:controller]=="cards")}
             = link_to "Cromos", cards_path
           %li{:class => ("active" if params[:controller]=="pictures")}

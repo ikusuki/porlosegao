@@ -2344,7 +2344,6 @@ table .span12 {
 }
 .navbar .brand {
   float: left;
-  display: block;
   padding: 8px 20px 12px;
   margin-left: -20px;
   font-size: 20px;
