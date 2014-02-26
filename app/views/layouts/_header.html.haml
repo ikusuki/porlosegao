@@ -3,25 +3,25 @@
     .container.extended
       %a#titulaco.brand.animated.hide{:href => "/"}
         By The Segao<br/>
-        %h6{:style=> "color:white"} is the way
+        %h6 is the way
       .nav-collapse
-        #osusume{:style => "color:white; position: absolute; left: 150px; top: -10px; "}
+        #osusume
           = link_to cards_path(:tag => "Bárcenas") do
-            = image_tag "Barcenas.png", :class => "animated", :id => "barcenas", :style => "display:none"
+            = image_tag "Barcenas.png", :class => "animated", :id => "barcenas"
         %ul.nav.pull-right#menuright
           %li.divider-vertical
           - if current_user
-            %li{:style => "display: none"}
+            %li
               %a#upload{:href => "#"}
                 Subir imagen
-            %li{:style => "display: none"}
+            %li
               = link_to "Logout #{current_user.username}", destroy_user_session_path
           - unless current_user
             %li.dropdown
               %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
                 Registrander
                 %strong.caret
-              .dropdown-menu.wrapper{:style => "padding: 15px; padding-bottom:0px"}
+              #registrate.dropdown-menu.wrapper
                 %h4 Regístrate y empieza a enviar imágenes y crear cromos tu también!!
                 = form_for(:user, :url => registration_path(:user), :html => {:id => "signin_form"}) do |f|
                   = f.text_field :username, :placeholder => "Usernamer", :class=>"validate[required]", "data-prompt-position" => "topRight:-50,0"

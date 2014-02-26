@@ -19,7 +19,7 @@
     - if @cards.size ==0
       %p No hay cromos todavía...
     - else
-      =@cards.size 
+      =@cards.size
       =@cards.size!=1?"cromos":"cromo"
   - if current_user
     %a#crearCromo.btn.btn-primary.btn-large{:href => "#"}
@@ -33,13 +33,12 @@
       %input#cardHeight{:type =>"hidden", :name => :card_height}
       %input#tags{:type => "hidden", :name => :tags}
       %textarea#cromoText{:name => "cromoText"}
-      #tag_list.tag-list{:style=>"width: 440px"}
+      #tag_list.tag-list
         .tags
       %a#daleCera.btn.btn-info{:href => "#"}
         Dale cera
       %a#cancel.btn.btn-danger{:href => "#"}
         Déjalo pa luego
-
 
 #cromos
   - @cards.each do |card|

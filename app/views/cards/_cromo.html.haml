@@ -1,4 +1,4 @@
-.cromo{:style => "height:#{card.height}px; display:none", :class => ("shown" if defined?(new)), :id => "cromo#{card.id}"}
+.cromo.animated{:style => "height:#{card.height}px; display:none", :class => ("shown" if defined?(new)), :id => "cromo#{card.id}"}
   .credits
     - if card.user.id == card.picture.user.id
       %a{:href => "#"}="#{card.user.username}'s"

@@ -96,7 +96,7 @@ $.fn.toscamark = (options) ->
 
   @show_card_anim = ($card) ->
     randomAnimation = animations[Math.floor(Math.random() * animations.length)]
-    $card.addClass "animated " + randomAnimation
+    $card.addClass(randomAnimation)
     comment = $(".comment p", $card)
     item = $(".cromo_img img", $card)
     item.delay(1000 + Math.floor(Math.random() * 2000)).slideDown 100, "easeOutElastic", ->
@@ -106,6 +106,7 @@ $.fn.toscamark = (options) ->
         height: "185px"
       , 100, ->
         $(this).css "height", "auto"
+    return true
 
   # Display items (if hidden).
   $(this).show()
@@ -116,4 +117,3 @@ $.fn.toscamark = (options) ->
       @show_card_anim($card)
     ), Math.floor(Math.random() * 10000)
     i++
-  return

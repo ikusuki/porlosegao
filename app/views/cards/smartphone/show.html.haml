@@ -14,7 +14,7 @@
   %button#crearCromo.btn.btn-info.btn-large
     Crear cromo con esta imagen
 #comments
-  %h2 Comentarios 
+  %h2 Comentarios
   - if @comments.size == 0
     %p#nadie
       Nadie ha dicho ná de momenter
@@ -26,12 +26,12 @@
         .user
           - if left
             .username
-              %a{:href => "#"}=comment.user.username 
+              %a{:href => "#"}=comment.user.username
           %p.com.triangle-right{:class => (left ? "left" : "right")}
             =comment.comment
           - if !left
             .username
-              %a{:href => "#"}=comment.user.username 
+              %a{:href => "#"}=comment.user.username
   - unless current_user.blank?
     #ladrido.triangle-right
       %input{:type=> :text, :placeholder => "Comenta algo, muchacho"}
@@ -40,7 +40,7 @@
     %p
       Tira
       %a#padentrer{:href => "#", :style => "margin-bottom:50px"}
-        pa dentro 
+        pa dentro
       pa comentar!
       %br
       %br
