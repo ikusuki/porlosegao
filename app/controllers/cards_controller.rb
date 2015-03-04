@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_filter :get_user_votes, :except => [:show, :create_cromo]
   def show
     @card = Card.where(id: params[:id]).first
-    render 'index' and return if !@card
+    render :index and return if !@card
     @comments = Comment.find_all_by_card_id(@card.id)
     @vote = Vote.exists?(:user_id => current_user.id, :card_id => @card.id) if !current_user.blank?
     render 'cards/smartphone/show' if @mobile
@@ -63,7 +63,7 @@ class CardsController < ApplicationController
         @cards = Card.tagged_with(tag).order("votos desc").limit(5).offset((page.to_i-1) * 5)
       end
     else
-      # PostgreSQL Heroku last minute patch
+      # PostgreSQL Heroku last minute patch, should have done local development with PostgreSQL as well!! 
       # #TODO: This must go to models and should be ActiveRecord / AREL !!!!!!
       select = "cards.*,coalesce(extract(YEAR FROM votes.created_at), null) hoy"
       joins=""
