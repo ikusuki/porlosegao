@@ -63,7 +63,8 @@ class CardsController < ApplicationController
         @cards = Card.tagged_with(tag).order("votos desc").limit(5).offset((page.to_i-1) * 5)
       end
     else
-      # PostgreSQL Heroku
+      # PostgreSQL Heroku last minute patch
+      # #TODO: This must go to models and should be ActiveRecord / AREL !!!!!!
       select = "cards.*,coalesce(extract(YEAR FROM votes.created_at), null) hoy"
       joins=""
       order = "hoy, votos desc"

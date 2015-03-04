@@ -7,5 +7,5 @@ This project aims to do that: get problems temporary out of your way when browsi
 
 The project is developed in Ruby on Rails with Coffeescript and HAML.
 
-Check it alive deployed in Heroku here: http://www.porlosegao.com
+Check it alive deployed in Heroku here: http://porlosegao.herokuapp.com
 
